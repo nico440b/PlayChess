@@ -1,0 +1,192 @@
+.gameStatsAlt {
+  display: flex;
+
+  align-items: flex-start;
+  justify-content: center;
+  align-content: center;
+  padding-left: 0px;
+  
+  width: 100%;
+  height: 23vh;
+  
+  border-radius: 18px!important;
+
+  
+  
+
+  grid-template-columns: repeat(1, 200px);
+  grid-template-rows: repeat(5, 40px);
+
+}
+
+.turnIndicatorTop{
+  width: 100%;
+  height: 40px;
+  
+  align-self: center;
+  
+}
+
+#cardTurn{
+  background: #00000000!important;
+  height: 40px;
+  width: 23vw;
+  
+  display: flex;
+  justify-content: center;
+  visibility: hidden;
+  align-self: center;
+  align-items: center;
+}
+
+#cardTurnVisible{
+  background: #00000000!important;
+  height: 40px;
+  width: 23vw;
+  
+  display: flex;
+  justify-content: center;
+  visibility: visible;
+  
+  align-items: center;
+}
+
+
+
+
+
+
+
+.startGameBtnFalse {
+  font-weight: bold !important;
+  background-color: rgb(29, 179, 66) !important;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif!important;
+  letter-spacing: 0.1rem!important;
+  width: 140px;
+  margin-left: 10px!important;
+}
+
+.startGameBtnFalse:hover {
+  background-color: rgb(80, 255, 124) !important;
+}
+
+
+
+.startGameBtnTrue {
+  font-weight: bold !important;
+  background-color: #bd1a1a !important;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif!important;
+  letter-spacing: 0.1rem!important;
+  width: 140px;
+  margin-left: 10px!important;
+}
+
+.startGameBtnTrue:hover {
+  background-color: #ff6a6a !important;
+}
+
+
+
+
+
+
+.setTimeBtn {
+  font-weight: bold !important;
+  background-color: #034f84 !important;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif!important;
+  letter-spacing: 0.1rem!important;
+  width: 140px;
+}
+
+.setTimeBtn:hover{
+  background-color: #3299e2 !important;
+}
+
+
+
+
+.startGameBtnGrid {
+  display: flex;
+  margin-top: 5vh;
+  
+  justify-content: center;
+  align-content: flex-end;
+}
+
+.setTimerIc{
+  display: flex;
+  padding-bottom: 5px;
+  justify-content: center;
+}
+.leftStatsMain{
+  display: flex;
+  flex-direction: column;
+  row-gap: 50px;
+  background-color: transparent;
+}
+
+#turnIndicator{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  
+}
+
+#turnIndicatorTxt{
+  font-weight: bold !important;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif!important;
+  letter-spacing: 0.1rem!important;
+}
+
+.turnIndicatorWhite{
+  background-color: #f7feff;
+  height: 40px;
+  width: 100%;
+  padding: 0!important;
+}
+.turnIndicatorBlack{
+  background-color: #014779;
+  height: 40px;
+  width: 100%;
+  padding: 0!important;
+}
+
+.turnIndicatorNotStarted{
+  background-color: transparent;
+  height: 40px;
+  width: 20vw;
+  padding: 0!important;
+ 
+}
+
+.txtWhite{
+  color: black;
+}
+.txtBlack{
+  color: white;
+}
+
+.toolTipStartGame{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  column-gap: 0.5rem;
+  font-size: larger;
+}
+
+
+/* .MuiSlider-thumb{
+  color: #E39829;
+}
+.MuiSlider-rail{
+  color:#E39829;
+}
+.MuiSlider-track{
+  color: #E39829;
+} */
+
+.MuiSlider-markLabel{
+  font-weight: bold!important;
+  
+}

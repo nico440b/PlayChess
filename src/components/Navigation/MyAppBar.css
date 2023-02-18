@@ -1,0 +1,68 @@
+.MyAppBar{
+    display: flex!important;
+    width: 100%;
+    height: fit-content;
+    background-color: #00122000;
+    
+    padding-left: 5%;
+    padding-right: 5%;
+    color: #ffffff;
+    transform: translateY(0%);
+    transition: all 1000ms;
+    
+}
+
+.MyAppBarChanged{
+    display: flex!important;
+    width: 100%;
+    height: fit-content;
+    background-color: #001220;
+    padding-left: 5%;
+    padding-right: 5%;
+    color: #ffffff;
+    
+    transition: all 1000ms;
+    
+     
+}
+
+.container{
+    background-color: #00335700;
+}
+
+.toolBar{
+    padding: 0px!important;
+}
+.appBarBtn{
+    font-weight: bold;
+    margin-right: 5px;
+    font-size: medium;
+    
+}
+
+.appBarBtn:hover{
+    background-color: #00a5a870;
+    
+}
+
+.AppBarLinks{
+    text-decoration: none;
+    color: rgb(247, 247, 247);
+}
+
+.MainIcon{
+    align-self: center;
+    height: 30px;
+    padding-right: 5px;
+    color: #49d9bd;
+    transform: scaleX(-1);
+    margin-right: 10px;
+}
+
+.AppTitle{
+    font-weight: 900!important;
+    font-size: large!important;
+    letter-spacing: 0.1rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif!important;
+}
+

@@ -1,0 +1,14 @@
+.CapturedPieces{
+    display: grid;
+    place-content: center;
+    width: 30px;
+    height: 30px;
+}
+
+.CapturedPieces.capturedChessPiece{
+    width: 20px;
+    height: 20px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 20px;
+}
