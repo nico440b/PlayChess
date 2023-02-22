@@ -112,10 +112,10 @@ export default function Hometab() {
       <div className="homeItems" id="firstItem" style={{ backgroundImage: `url(${image})` }}>
 
         <div className="welcomeContainer">
-          <section className="flexRow">
+         
             <p className="welcomeText hidden4">Welcome to <span id="welcomeHighLight"> PLAYCHESS</span></p>
             
-          </section>
+          
 
           <div className="flexRow hidden4">
 
