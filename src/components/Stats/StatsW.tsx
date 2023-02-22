@@ -17,7 +17,7 @@ import HandshakeOutlinedIcon from '@mui/icons-material/HandshakeOutlined';
 import AccessTimeOutlinedIcon from '@mui/icons-material/AccessTimeOutlined';
 import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
 import React from 'react';
-import { setTimer} from '../../redux/timerReducer';
+import { setTimer, startGame} from '../../redux/timerReducer';
 import { setGameOver, setGameEnd } from '../../redux/gameReducer';
 import InfoIcon from '@mui/icons-material/Info';
 import PriorityHighIcon from '@mui/icons-material/PriorityHigh';
@@ -32,7 +32,7 @@ interface Props {
 
 
 
-export default function Stats() {
+export default function Stats({ gameTimer, startGame }: Props) {
 
     const { timer } = useSelector((state: RootState) => state.counter6);
     const { gameOn } = useSelector((state: RootState) => state.counter6);
@@ -50,7 +50,7 @@ export default function Stats() {
 
 
     const cTurn = count % 2 === 0 ? false : true;
-    const cTurnTimerW = count % 2 === 0 ? "rgba(180, 180, 180, 0.500)" : "";
+    const cTurnTimerW = count % 2 === 0 ? "inactive" : "active";
     const cTurnTimerB = count % 2 === 0 ? "" : "rgba(180, 180, 180, 0.500)";
     const pointsPrefixW = pCountW - pCountB > 0 ? "+" : "";
     const pointsW = pCountW - pCountB > 0 ? pCountW - pCountB : "";
@@ -88,19 +88,22 @@ export default function Stats() {
             <Card className="statsCard" id="statsCardWhite" >
 
                 
-                    <Card className="timerCard" style={{ backgroundColor: cTurnTimerW }}>
+                    <Card className="timerCard" id={cTurnTimerW}>
                         <CardContent className="timerCardCont">
                             <div className='timerGrid2' >
-                                <AccessTimeOutlinedIcon />
+                                <AccessTimeOutlinedIcon className='timerIcon'/>
 
                                 <Typography className='timerSpan' display={"flex"} component={"span"} justifyContent={"center"} height={"30px"} width={"50px"} >
-                                    <CountDownTimer minutes={5} seconds={0} isActive={cTurn} />
+                                    <CountDownTimer minutes={gameTimer} seconds={0} isActive={cTurn && startGame} />
                                 </Typography>
                             </div>
 
                         </CardContent>
                     </Card>
-                
+                    <div className='profileContainer'>
+                    <Avatar>W</Avatar>
+                    <p>White</p>
+                </div>
 
                 <div className="piecesGrid">
                     <div className='pieceContainer' >{renderCapW} </div>

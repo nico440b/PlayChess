@@ -13,12 +13,15 @@ import DialogTitle from '@mui/material/DialogTitle';
 import Dialog from "@mui/material/Dialog";
 import Slide from '@mui/material/Slide';
 
-import React, { useEffect } from 'react';
+import React, { Component, useEffect } from 'react';
 import { TransitionProps } from '@mui/material/transitions';
 import { Avatar } from '@mui/material';
-import ChessboardSmaller from '../Chessboard/ChessboardSmaller';
+
 import StatsW from '../Stats/StatsW';
 import StatsB from '../Stats/StatsB';
+import TurnIndicatorComponent from '../Stats/TurnIndicatorComponent';
+import Chessboard1440 from '../Chessboard/Chessboard1440';
+import Chessboard1280 from '../Chessboard/Chessboard1280';
 
 
 const Transition = React.forwardRef(function Transition(
@@ -41,21 +44,22 @@ export default function Gamepage() {
    const winner = gameStats?.[0] === "WHITE" ? "1-0" : "0-1";
    const isSmallerDevice: MediaQueryList = window.matchMedia("(max-width: 1280px)")
    const isSmallerDevice2: MediaQueryList = window.matchMedia("(max-width: 1440px)")
-   const renderChessBoard = isSmallerDevice.matches ? <ChessboardSmaller /> : <Chessboard />;
-   const renderStats = isSmallerDevice2.matches ? 
-      <div className='Stats'>
-         <StatsB />
-         <StatsW />
-      </div> : <div className='Stats'>
-         <StatsB />
-      </div>;
+   const isFHDDevice: MediaQueryList = window.matchMedia("(max-width: 1920px)")
+   
+   
+   function deviceSelection(){
 
-   const renderStatsRight = isSmallerDevice2.matches ? 
-   <div >
       
-   </div> : <div className='StatsRight'>
-      <StatsW />
-   </div>;
+      if(isSmallerDevice.matches){
+         return <Chessboard1280/>
+      }
+      if(isSmallerDevice2.matches){
+         return <Chessboard1440/>
+      }
+      if(isFHDDevice.matches){
+         return <Chessboard/>
+      }
+   }
 
    const handleClickOpen = () => {
       setOpen(true);
@@ -75,15 +79,22 @@ export default function Gamepage() {
 
    return (
       <div className='MainPage'>
-         {renderStats}
+          <div className='Stats'>
+            <StatsB key={timer+1} gameTimer={timer} startGame={gameOn} />
+            <StatsW key={timer} gameTimer={timer} startGame={gameOn}/>
+      </div> 
          <div className='Board'>
-            {renderChessBoard}
+            {deviceSelection()}
+            
          </div>
+         <div className='StatsRight'>
+               <TurnIndicatorComponent/>
+               <StatsAlt/>
+         </div>;
+         
 
-         {renderStatsRight}
 
-
-         {/* <Dialog className='dialogBox' open={open} 
+         <Dialog className='dialogBox' open={open} 
             TransitionComponent={Transition}
             keepMounted
             onClose={handleClose}
@@ -103,7 +114,7 @@ export default function Gamepage() {
                <DialogTitle className='dialogTitle'>{gameEnd}</DialogTitle>
                <DialogContent className='dialogContContainer'>
                   <div className='playerWhite'>
-                     <Avatar sx={{ bgcolor: "#c0e9fd", color: "black", minHeight: "80px", minWidth: "80px" }} aria-label="">P</Avatar>
+                     <Avatar sx={{ bgcolor: "#c0e9fd", color: "black", minHeight: "80px", minWidth: "80px" }} aria-label="">W</Avatar>
                   </div>
 
                   <div>
@@ -116,7 +127,7 @@ export default function Gamepage() {
             </div>
             
 
-         </Dialog> */}
+         </Dialog> 
       </div>
    );
 }

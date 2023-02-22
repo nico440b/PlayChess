@@ -138,16 +138,16 @@ export default function Chessboard() {
     if (used && board) {
 
       // Left
-      const minX = board.offsetLeft - 7;
+      const minX = board.offsetLeft - 12;
 
       // Top
-      const minY = board.offsetTop - 5;
+      const minY = board.offsetTop - 7;
 
       // Right
-      const maxX = board.offsetLeft + board.clientWidth - 50;
+      const maxX = board.offsetLeft + board.clientWidth - 32;
 
       // Bottom
-      const maxY = board.offsetTop + board.clientHeight - 52;
+      const maxY = board.offsetTop + board.clientHeight - 35;
 
       const mouseX = e.clientX - 20;
       const mouseY = e.clientY - 20;
@@ -188,10 +188,10 @@ export default function Chessboard() {
       const movingPiece = pieces.find(p => p.position.x === gX && p.position.y === gY);
       const defPiece = pieces.find(p => p.position.x === x && p.position.y === y);
 
-      console.log(movingPiece?.moves)
       
-      if (movingPiece ) {
-        if (movingPiece.validMove(gX, gY, x, y,pieces) && cTurn === movingPiece.team) {
+      
+      if (movingPiece && movingPiece.team === cTurn && gameOn) {
+        if (movingPiece.validMove(gX, gY, x, y,pieces) ) {
         
           const uPieces = pieces.reduce((results, p) => {
             if (p.position.x === gX && p.position.y === gY) {
@@ -271,7 +271,7 @@ export default function Chessboard() {
           setP(uPieces)  
           
           
-          //allValidMoves(uPieces)
+          
           console.log(threatMapWhite(uPieces))
           for (let index = 0; index < allValidMoves(uPieces).length; index++) {
             const element = allValidMoves(uPieces)[index];
@@ -306,7 +306,7 @@ export default function Chessboard() {
             
           } 
           dispatch(increment());
-          //allValidMoves(uPieces)
+          
         }
         else {
           used.style.position = "relative";
@@ -344,7 +344,7 @@ export default function Chessboard() {
       setY(gY);
 
       const mouseX = e.clientX - 20;
-      const mouseY = e.clientY - 20;
+      const mouseY = e.clientY -20;
       thing.style.position = "absolute";
       thing.style.left = `${mouseX}px`;
       thing.style.top = `${mouseY}px`;
@@ -400,12 +400,10 @@ export default function Chessboard() {
     } 
   });
 
-
   useEffect(() => {
     if (gameReset === true && boardStart) {
       
       setP(boardStart);
-      
       dispatch(clearW());
       dispatch(clearB());
       dispatch(clearLog());
@@ -420,13 +418,13 @@ export default function Chessboard() {
       console.log(gameOver)
     } 
   });
+  
 
   
 
 
   return (
     <div className="FullBoard">
-      
       
       <AxisY/>
       <div  onMouseMove={e => move(e)} onMouseUp={e => drop(e)} onMouseDown={e => grab(e)} className="Chessboard" ref={ref}>{board}</div>

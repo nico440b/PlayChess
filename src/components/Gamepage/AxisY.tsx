@@ -5,8 +5,8 @@ import './AxisY.css'
 export default function AxisY(){
 
     return(
-        <Sheet className="AxisSheetY">
-            <div className='axisY'>
+        <Sheet className="AxisSheetY noselect">
+            <div className='axisY '>
                 8
             </div>
             <div className='axisY'>

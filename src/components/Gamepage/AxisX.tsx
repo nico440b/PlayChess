@@ -7,7 +7,7 @@ import './AxisX.css'
 export default function AxisX() {
 
     return (
-        <Sheet className="AxisSheetX">
+        <Sheet className="AxisSheetX noselect">
             <div className='axisXFiller'>
                 
             </div>

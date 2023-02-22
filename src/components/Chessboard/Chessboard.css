@@ -1,19 +1,19 @@
 .Chessboard {
     display: grid;
-    grid-template-columns: repeat(8, 80px);
-    grid-template-rows: repeat(8, 80px);
-    width: 640px;
-    height: 640px;
+    grid-template-columns: repeat(8, 100px);
+    grid-template-rows: repeat(8, 100px);
+    width: 800px;
+    height: 800px;
     margin-right: 0px;
     position: center;
 }
 .FullBoard{
     display: grid;
-    grid-template-columns: 80px 2fr 80px;
-    grid-template-rows: 2fr 80px;
+    grid-template-columns: 30px 2fr 30px;
+    grid-template-rows: 2fr 30px;
 }
 
-@media  screen and (max-width: 1280px) {
+@media  screen and (min-width: 1280px) and (max-width: 1400px) {
     .Chessboard {
         display: grid;
         grid-template-columns: repeat(8, 60px);
@@ -26,11 +26,33 @@
 
     .FullBoard{
         display: grid;
-        grid-template-columns: 60px 480px 60px;
+        grid-template-columns: 15px 480px 15px;
         grid-template-rows:  480px 60px;
         
     }
+} 
+
+
+
+@media  screen and (min-width: 1440px) and (max-width: 1870px) {
+    .Chessboard {
+        display: grid;
+        grid-template-columns: repeat(8, 80px);
+        grid-template-rows: repeat(8, 80px);
+        width: 640px;
+        height: 640px;
+        margin-right: 0px;
+        position: center;
+    }
+
+    .FullBoard{
+        display: grid;
+        grid-template-columns: 30px 640px 30px;
+        grid-template-rows:  640px 80px;
+        
+    }
 }
+
 
 
 

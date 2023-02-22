@@ -144,12 +144,12 @@ export default function Chessboard() {
       const minY = board.offsetTop - 10;
 
       // Right
-      const maxX = board.offsetLeft + board.clientWidth - 50;
+      const maxX = board.offsetLeft + board.clientWidth - 37;
 
       // Bottom
-      const maxY = board.offsetTop + board.clientHeight - 52;
+      const maxY = board.offsetTop + board.clientHeight - 42;
 
-      const mouseX = e.clientX - 30;
+      const mouseX = e.clientX - 25;
       const mouseY = e.clientY - 25;
       used.style.position = "absolute";
 
@@ -181,8 +181,8 @@ export default function Chessboard() {
   function drop(e: React.MouseEvent) {
     const board = ref.current;
     if (used && board) {
-      const x = Math.floor((e.clientX - board.offsetLeft) / 100);
-      const y = Math.abs(Math.ceil((e.clientY - board.offsetTop - 800) / 100));
+      const x = Math.floor((e.clientX - board.offsetLeft) / 80);
+      const y = Math.abs(Math.ceil((e.clientY - board.offsetTop - 640) / 80));
       const cTurn = count % 2 === 0 ? "b" : "w";
 
       const movingPiece = pieces.find(p => p.position.x === gX && p.position.y === gY);
@@ -334,8 +334,8 @@ export default function Chessboard() {
       
 
     if (thing.classList.contains("chessPiece") && board) {
-      const gX = Math.floor((e.clientX - board.offsetLeft) / 100);
-      const gY = Math.abs(Math.ceil((e.clientY - board.offsetTop - 800) / 100));
+      const gX = Math.floor((e.clientX - board.offsetLeft) / 80);
+      const gY = Math.abs(Math.ceil((e.clientY - board.offsetTop - 640) / 80));
 
 
       
@@ -343,8 +343,8 @@ export default function Chessboard() {
       setX(gX);
       setY(gY);
 
-      const mouseX = e.clientX - 30;
-      const mouseY = e.clientY - 25;
+      const mouseX = e.clientX - 25;
+      const mouseY = e.clientY -25;
       thing.style.position = "absolute";
       thing.style.left = `${mouseX}px`;
       thing.style.top = `${mouseY}px`;
