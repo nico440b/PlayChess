@@ -5,9 +5,9 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
+ 
   
-  
+  background-color: #001220;
   
 }
 
@@ -31,3 +31,4 @@ body::-webkit-scrollbar {
   width: 0px;
   background: transparent; /* Disable scrollbar Chrome/Safari/Webkit */
 }
+

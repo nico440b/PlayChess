@@ -113,17 +113,11 @@ export default function StatsAlt() {
           
             
         </div>
-            <Card className='gameStatsAlt'>
-                
-                <CardContent>
-                    <Grid>
-                        <Grid className='setTimerIc'>
-                            <img src={timerIcon} />
-                        </Grid>
-                        <Grid>
-                            <Box sx={{ width: 300 }}>
+            <div className='gameStatsAlt'>
+         
+                            <div >
                                 
-                                    <Slider onChangeCommitted={(_, value) => handleChangeTimer((value as number))}
+                                    <Slider className='sliderTimer' onChangeCommitted={(_, value) => handleChangeTimer((value as number))}
                                         aria-label="Custom marks"
                                         defaultValue={5}
                                         getAriaValueText={valuetext}
@@ -136,9 +130,9 @@ export default function StatsAlt() {
                                     />
                                 
                                 
-                            </Box>
-                        </Grid>
-                        <Grid className='startGameBtnGrid'>
+                            </div>
+                        
+                        <div className='startGameBtnGrid'>
 
                             <Button className='setTimeBtn' variant='contained' onClick={setTime}>
                                 Set Time
@@ -153,13 +147,13 @@ export default function StatsAlt() {
                             </Tooltip>
                             
 
-                        </Grid>
+                        </div>
 
 
-                    </Grid>
-                </CardContent>
+                    
+                
 
-            </Card>
+            </div>
             
         </div>
 

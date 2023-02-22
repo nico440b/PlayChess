@@ -1,0 +1,15 @@
+.puzzlesContainer{
+    
+    position: absolute;
+    top: 50%;
+    left:47%;
+    
+
+}
+
+.loadingIcon{
+    color: #79fac5;
+    filter: drop-shadow(0 0 30px #79fac5);
+    width: 5rem;
+    height: 5rem;
+}

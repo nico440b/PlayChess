@@ -8,6 +8,9 @@ export default function AxisX() {
 
     return (
         <Sheet className="AxisSheetX">
+            <div className='axisXFiller'>
+                
+            </div>
             <div className='axisX'>
                 A
             </div>

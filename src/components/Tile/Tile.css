@@ -48,3 +48,40 @@
     background-color: rgba(255, 0, 0, 0.3) ;
     position: fixed;
 } 
+
+
+
+@media  screen and (max-width: 1280px) {
+    .tile {
+        display: grid;
+        place-content: center;
+        width: 60px;
+        height: 60px;
+    }
+
+    .tile .chessPiece{
+        width: 40px;
+        height: 40px;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 40px;
+        
+    }
+
+    .tile-mark:not(.piece-tile):before{
+        content: " ";
+        width: 60px;
+        height: 60px;
+        background-color: rgba(45, 255, 97, 0.3) ;
+        position: fixed;
+    }
+    
+    
+    .tile-mark.piece-tile::before{
+        content: " ";
+        width: 60px;
+        height: 60px;
+        background-color: rgba(255, 0, 0, 0.3) ;
+        position: fixed;
+    } 
+}

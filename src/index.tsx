@@ -6,26 +6,48 @@ import reportWebVitals from './reportWebVitals';
 
 import store from "./redux/store";
 import { Provider } from "react-redux";
+import Gamepage from './components/Gamepage/Gamepage';
 
 
+import { BrowserRouter as Router, Route, Link, BrowserRouter, Routes } from "react-router-dom";
 
-import { Scrollbars } from 'react-custom-scrollbars';
+import Hometab from './components/Tabs/Hometab';
+
+import MyAppBar from './components/Navigation/MyAppBar';
+import { StyledEngineProvider } from '@mui/material/styles';
+import Puzzles from './components/Tabs/Puzzles';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    
-      <Provider store={store}>
-        
-          <App/>
 
-        
-          
-      </Provider>
-    
-    
+    <Provider store={store}>
+
+      <BrowserRouter>
+
+        <StyledEngineProvider injectFirst>
+          <MyAppBar />
+        </StyledEngineProvider>
+
+        <Routes>
+
+          <Route path="" element={<Hometab />} />
+
+          <Route path="/play" element={<Gamepage />} />
+          <Route path="/puzzles" element={<Puzzles />} />
+
+        </Routes>
+
+
+
+      </BrowserRouter>
+
+
+    </Provider>
+
+
   </React.StrictMode>
 );
 

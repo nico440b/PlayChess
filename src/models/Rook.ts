@@ -255,4 +255,57 @@ export class Rook extends Piece{
         selected.moves = validMoves;
         return selected.moves;
     }
+
+    findThreatMap(selected: Piece, state: Piece[]): Position[] {
+        const validMoves: Position[] = [];
+        for (let i = 1; i < 8; i++) {
+            const endPosition: Position = { x: this.position.x, y: this.position.y + i };
+            if(this.validMove(this.position.x, this.position.y, endPosition.x, endPosition.y, state)){
+                if( endPosition.x >-1 && endPosition.y >-1 && endPosition.x<8 && endPosition.y<8){
+                    validMoves.push(endPosition);  
+                }  
+            }
+            
+             else {
+                break;
+            }
+        }
+        for (let i = 1; i < 8; i++) {
+            const endPosition: Position = { x: this.position.x, y: this.position.y - i };
+
+            if(this.validMove(this.position.x, this.position.y, endPosition.x, endPosition.y, state)){
+                if( endPosition.x >-1 && endPosition.y >-1 && endPosition.x<8 && endPosition.y<8){
+                    validMoves.push(endPosition);  
+                }  
+            } else {
+                break;
+            }
+        }
+        for (let i = 1; i < 8; i++) {
+            const endPosition: Position = { x: this.position.x + i, y: this.position.y };
+
+            if(this.validMove(this.position.x, this.position.y, endPosition.x, endPosition.y, state)){
+                if( endPosition.x >-1 && endPosition.y >-1 && endPosition.x<8 && endPosition.y<8){
+                    validMoves.push(endPosition);  
+                } 
+            }else {
+                break;
+            }
+        }
+        for (let i = 1; i < 8; i++) {
+            const endPosition: Position = { x: this.position.x - i, y: this.position.y };
+
+            if(this.validMove(this.position.x, this.position.y, endPosition.x, endPosition.y, state)){
+                if( endPosition.x >-1 && endPosition.y >-1 && endPosition.x<8 && endPosition.y<8){
+                    validMoves.push(endPosition);  
+                }  
+            } else {
+                break;
+            }
+        }
+        
+        
+        selected.threatMap = validMoves;
+        return this.threatMap
+    }
 }

@@ -1,6 +1,6 @@
 import './Gamepage.css'
 import Chessboard from '../Chessboard/Chessboard';
-import Stats from '../Stats/Stats';
+import Stats from '../Stats/StatsB';
 import StatsAlt from '../Stats/StatsAlt';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../redux/store';
@@ -16,6 +16,9 @@ import Slide from '@mui/material/Slide';
 import React, { useEffect } from 'react';
 import { TransitionProps } from '@mui/material/transitions';
 import { Avatar } from '@mui/material';
+import ChessboardSmaller from '../Chessboard/ChessboardSmaller';
+import StatsW from '../Stats/StatsW';
+import StatsB from '../Stats/StatsB';
 
 
 const Transition = React.forwardRef(function Transition(
@@ -28,15 +31,31 @@ const Transition = React.forwardRef(function Transition(
 });
 
 export default function Gamepage() {
-   
-   
+
+
    const { timer } = useSelector((state: RootState) => state.counter6);
    const { gameOn } = useSelector((state: RootState) => state.counter6);
    const { gameStats, gameOver, gameEnd } = useSelector((state: RootState) => state.counter8);
    const [open, setOpen] = React.useState(false);
 
-   const winner = gameStats?.[0] === "WHITE" ? "1-0": "0-1";
-  
+   const winner = gameStats?.[0] === "WHITE" ? "1-0" : "0-1";
+   const isSmallerDevice: MediaQueryList = window.matchMedia("(max-width: 1280px)")
+   const isSmallerDevice2: MediaQueryList = window.matchMedia("(max-width: 1440px)")
+   const renderChessBoard = isSmallerDevice.matches ? <ChessboardSmaller /> : <Chessboard />;
+   const renderStats = isSmallerDevice2.matches ? 
+      <div className='Stats'>
+         <StatsB />
+         <StatsW />
+      </div> : <div className='Stats'>
+         <StatsB />
+      </div>;
+
+   const renderStatsRight = isSmallerDevice2.matches ? 
+   <div >
+      
+   </div> : <div className='StatsRight'>
+      <StatsW />
+   </div>;
 
    const handleClickOpen = () => {
       setOpen(true);
@@ -56,19 +75,15 @@ export default function Gamepage() {
 
    return (
       <div className='MainPage'>
-         <StatsAlt />
-         <div className='gameBoard'>
-            <AxisY />
-            <Chessboard />
-            
+         {renderStats}
+         <div className='Board'>
+            {renderChessBoard}
          </div>
-         <div className='statsRight'>
-            <Stats key={timer} gameTimer={timer} startGame={gameOn} />
-         </div>
-         <div className='xAxis'>
-            <div className='xAxisComp'><AxisX /></div>
-         </div>
-         <Dialog className='dialogBox' open={open} 
+
+         {renderStatsRight}
+
+
+         {/* <Dialog className='dialogBox' open={open} 
             TransitionComponent={Transition}
             keepMounted
             onClose={handleClose}
@@ -101,7 +116,7 @@ export default function Gamepage() {
             </div>
             
 
-         </Dialog>
+         </Dialog> */}
       </div>
    );
 }

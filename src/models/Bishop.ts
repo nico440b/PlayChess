@@ -259,10 +259,11 @@ export class Bishop extends Piece{
 
     findThreatMap(selected: Piece, state: Piece[]): Position[] {
         const validMoves: Position[] = [];
+        
 
         for (let i = 1; i < 8; i++) {
             const endPosition: Position = { x: selected.position.x + i, y: selected.position.y + i };
-
+            
             if (this.tileUsedByOpp(endPosition.x, endPosition.y, state, selected.team)) {
                 if( endPosition.x >-1 && endPosition.y >-1 && endPosition.x<8 && endPosition.y<8){
                     validMoves.push(endPosition);  
@@ -274,7 +275,14 @@ export class Bishop extends Piece{
             }
             if (this.tileIsUsed(endPosition.x, endPosition.y, state)) {
                 if( endPosition.x >-1 && endPosition.y >-1 && endPosition.x<8 && endPosition.y<8){
-                    validMoves.push(endPosition);  
+                    if(!this.tileIsUsed(endPosition.x-1, endPosition.y-1, state)){
+                        if((state.find(p=> p.position.x === endPosition.x-1 && p.position.y === endPosition.y-1) !== selected)){
+                            validMoves.push(endPosition); 
+                        }
+                         
+                    }
+                    
+                   
                 } 
 
             } 
@@ -283,7 +291,8 @@ export class Bishop extends Piece{
                     validMoves.push(endPosition);  
                 } 
 
-            } 
+            }
+            
             
             else {
                 break;

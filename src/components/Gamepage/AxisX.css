@@ -1,6 +1,6 @@
 .AxisSheetX{
-    width: 640px;
-    height: 30px;
+    width: 720px;
+    height: 80px;
     background-color: rgba(255, 255, 255, 0)!important;
     display: flex;
     flex-direction: row;
@@ -13,13 +13,50 @@
 .axisX{
     display: flex;
     font-weight: bold;
+    font-size: 1rem;
     justify-content: center;
-    align-items: center;
-    
-    color: #C62368;
+    align-items: flex-start;
+    padding-top: 0.5rem;
+    color: #79fac5;
     
     height: 100%;
     width: 80px;
 
 }
 
+.axisXFiller{
+    width: 80px!important;
+}
+
+
+@media  screen and (max-width: 1280px) {
+    
+    .AxisSheetX{
+        width: 540px;
+        height: 60px;
+        background-color: rgba(255, 255, 255, 0)!important;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-items: flex-end;
+        
+       
+    }
+    .axisX{
+        display: flex;
+        font-weight: bold;
+        font-size: 0.8rem;
+        
+        
+        
+        
+        height: 100%;
+        width: 60px;
+    
+    }
+    
+    .axisXFiller{
+        
+        width: 60px!important;
+    }
+}

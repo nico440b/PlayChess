@@ -4,24 +4,23 @@
   align-items: flex-start;
   justify-content: center;
   align-content: center;
-  padding-left: 0px;
+  padding: 1.5rem;
   
   width: 100%;
-  height: 23vh;
   
+  
+  border: 1px solid red;
   border-radius: 18px!important;
 
   
   
 
-  grid-template-columns: repeat(1, 200px);
-  grid-template-rows: repeat(5, 40px);
 
 }
 
 .turnIndicatorTop{
   width: 100%;
-  height: 40px;
+  
   
   align-self: center;
   
@@ -29,9 +28,9 @@
 
 #cardTurn{
   background: #00000000!important;
-  height: 40px;
-  width: 23vw;
   
+  width: 100%;
+  padding: 1.5rem;
   display: flex;
   justify-content: center;
   visibility: hidden;
@@ -41,9 +40,9 @@
 
 #cardTurnVisible{
   background: #00000000!important;
-  height: 40px;
-  width: 23vw;
   
+  width: 100%;
+  padding: 1.5rem;
   display: flex;
   justify-content: center;
   visibility: visible;
@@ -62,8 +61,8 @@
   background-color: rgb(29, 179, 66) !important;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif!important;
   letter-spacing: 0.1rem!important;
-  width: 140px;
-  margin-left: 10px!important;
+  
+  
 }
 
 .startGameBtnFalse:hover {
@@ -77,8 +76,8 @@
   background-color: #bd1a1a !important;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif!important;
   letter-spacing: 0.1rem!important;
-  width: 140px;
-  margin-left: 10px!important;
+  
+  
 }
 
 .startGameBtnTrue:hover {
@@ -95,7 +94,7 @@
   background-color: #034f84 !important;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif!important;
   letter-spacing: 0.1rem!important;
-  width: 140px;
+  
 }
 
 .setTimeBtn:hover{
@@ -121,8 +120,9 @@
 .leftStatsMain{
   display: flex;
   flex-direction: column;
-  row-gap: 50px;
+  row-gap: 1rem;
   background-color: transparent;
+  width: 22rem;
 }
 
 #turnIndicator{
@@ -189,4 +189,8 @@
 .MuiSlider-markLabel{
   font-weight: bold!important;
   
+}
+
+.sliderTimer{
+  width: 100%!important;
 }

@@ -7,6 +7,32 @@
     margin-right: 0px;
     position: center;
 }
+.FullBoard{
+    display: grid;
+    grid-template-columns: 80px 2fr 80px;
+    grid-template-rows: 2fr 80px;
+}
+
+@media  screen and (max-width: 1280px) {
+    .Chessboard {
+        display: grid;
+        grid-template-columns: repeat(8, 60px);
+        grid-template-rows: repeat(8, 60px);
+        width: 480px;
+        height: 480px;
+        margin-right: 0px;
+        position: center;
+    }
+
+    .FullBoard{
+        display: grid;
+        grid-template-columns: 60px 480px 60px;
+        grid-template-rows:  480px 60px;
+        
+    }
+}
+
+
 
 
 

@@ -9,6 +9,7 @@
     color: #ffffff;
     transform: translateY(0%);
     transition: all 1000ms;
+    margin-top: 0px!important;
     
 }
 
@@ -22,7 +23,7 @@
     color: #ffffff;
     
     transition: all 1000ms;
-    
+    margin-top: 0px!important;
      
 }
 
@@ -36,27 +37,40 @@
 .appBarBtn{
     font-weight: bold;
     margin-right: 5px;
-    font-size: medium;
-    
+    font-size: 1.1rem;
+    background-color: #42424200!important;
+    transition: all 800ms;
 }
 
 .appBarBtn:hover{
-    background-color: #00a5a870;
+    background-color: #42424200!important;
+    color: #79fac5;
     
+    transition: all 800ms;
 }
 
 .AppBarLinks{
     text-decoration: none;
     color: rgb(247, 247, 247);
+    
 }
+
+
 
 .MainIcon{
     align-self: center;
     height: 30px;
     padding-right: 5px;
-    color: #49d9bd;
+    color: #ffffff;
     transform: scaleX(-1);
     margin-right: 10px;
+    transition: all 800ms;
+
+}
+
+.MainIcon:hover{
+    color: #79fac5; 
+    transition: all 800ms;
 }
 
 .AppTitle{
@@ -64,5 +78,24 @@
     font-size: large!important;
     letter-spacing: 0.1rem;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif!important;
+    transition: all 800ms;
+}
+.AppTitle:hover {
+    color: #79fac5; 
+    transition: all 800ms;
+
+    
+}
+
+.AppTitle:hover .MainIcon{
+    color: #79fac5; 
+    transition: all 800ms;
+
+    
+}
+
+#menu-appbar{
+    margin-top: 0!important;
+    height: fit-content;
 }
 

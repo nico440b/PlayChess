@@ -1,8 +1,10 @@
 
   .statsCard{
-    border-radius: 0px!important;
-    height: 30vh;
+    border-radius: 16px!important;
+    width: 350px;
     display: flex;
+    flex-direction: column;
+    padding: 0.5rem;
   }
 
   .pieceContainer{
@@ -20,26 +22,8 @@
     background-size: 20px;
   }
 
-  .timerCard{
-    width: 150px;
-    height: 40px;
-  }
-
-  .timerGrid{
-    display: flex;
-    margin-top: 10px;
-    padding-bottom: 30px;
-    align-content: center;
-    justify-content: center;
-    align-items: center;
-  }
-
   .timerGrid2{
     display: flex;
-    height: 100%;
-    width: 100%;
-    margin-top: 0px;
-    margin-bottom: 0px;
     justify-content: center;
     align-items: center;
   }
@@ -49,13 +33,14 @@
   }
   .timerCardCont{
     display: flex;
-    align-content: center;
-    justify-content: end;
-    align-items: center;
-    width: 150px;
-    height: 40px;
+    
    
     padding: 0 !important;
+  }
+
+  .timerCard{
+    width: fit-content;
+    align-self: center;
   }
 
   .timerCard::before{
@@ -63,19 +48,9 @@
     
   }
 
-  p {
-    margin-bottom: 0px !important;
-    margin: 0px;
-    align-items: center;
-  }
   
-  p.MuiTypography-root.MuiTypography-body1.css-1lvrlpq-MuiTypography-root {
-    display: flex;
-    align-items: center;
-    margin: 0px;
-    margin-right: 10px;
-  }
-
+  
+  
   .piecesGrid{
     display: flex;
     align-content: center;
@@ -93,6 +68,7 @@
 
   .pointContainer{
     margin-left: 5px;
+    font-size: 1rem;
   }
 
   .statsGrid{
@@ -102,80 +78,67 @@
     align-self: center;
   }
 
-  .profileGrid{
-    margin-bottom: 10px;
-    
-    align-items: center;
-    align-content: center;
-    display: flex;
-  }
+  
 
-  .profileItem{
-    display: flex;
-    margin-left: 10px;
-    height: 40px;
-    align-items: center;
-  }
+  
 
-  .iconGrid{
-    display: flex;
-    align-items: flex-end;
-    justify-content: end;
-    
-    
-    position: relative;
-  }
+  
 
-  .forfeitBtn:hover{
-    background-color: rgba(255, 118, 118, 0.274)!important;
-  }
-
-  .forfeitBtn{
-    height: 40px;
-    width: 40px;
-  }
-
-  .drawBtn{
-    height: 40px;
-    width: 40px;
-  }
-
-  .drawBtn:hover{
-    background-color: rgba(118, 182, 255, 0.274)!important;
-  }
+ 
 
   .gameStats {
-    width: 23vw;
-    
+
     display: flex;
     flex-direction: column;
+    justify-content: space-around;
     
-    row-gap: 20px;
     
   
-  }
-  
-  
-  
-  .startGameBtn:hover {
-    background-color: rgb(48, 255, 100) !important;
-  }
-  
-  .startGameBtnGrid {
-    display: flex;
-    margin-top: 5vh;
-    
-    justify-content: center;
-    align-content: flex-end;
   }
 
-  .profileTxt{
-    font-weight: 600!important;
-    font-size: large!important;
+
+  @media  screen and (max-width: 1280px) {
+    .statsCard{
+      border-radius: 16px!important;
+      width: 250px;
+      display: flex;
+      flex-direction: column;
+      padding: 0.5rem;
+    }
     
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif!important;
-    height: fit-content;
-  }
+    .piecesGrid{
+      display: flex;
+      align-content: center;
+      justify-content: start;
+      align-items: center;
+      margin-left: 10px;
+      height: 30px;
+      position: relative;
+    }
+  
+    .CapturedPiece {
+      width: 12px;
+      height: 20px;
+    }
+
+    .capturedChessPiece{
+      width: 12px;
+      height: 20px;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 17px;
+    }
+
+    .pointContainer{
+      margin-left: 3px;
+      font-size: 0.9rem;
+    
+    }
+}
+  
+  
+  
+  
 
   
 
