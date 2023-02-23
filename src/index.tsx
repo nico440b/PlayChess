@@ -24,25 +24,8 @@ root.render(
   <React.StrictMode>
 
     <Provider store={store}>
-
-      <BrowserRouter>
-
-        <StyledEngineProvider injectFirst>
-          <MyAppBar />
-        </StyledEngineProvider>
-
-        <Routes>
-
-          <Route path="" element={<Hometab />} />
-
-          <Route path="/play" element={<Gamepage />} />
-          <Route path="/puzzles" element={<Puzzles />} />
-
-        </Routes>
-
-
-
-      </BrowserRouter>
+      
+      <App />
 
 
     </Provider>

@@ -133,7 +133,7 @@ export default function Chessboard() {
 
   
 
-  function move(e: React.MouseEvent) {
+  /* function move(e: React.MouseEvent) {
     const board = ref.current;
     if (used && board) {
 
@@ -149,8 +149,8 @@ export default function Chessboard() {
       // Bottom
       const maxY = board.offsetTop + board.clientHeight - 52;
 
-      const mouseX = e.clientX - 30;
-      const mouseY = e.clientY - 25;
+      const mouseX = e.clientX - 990;
+      const mouseY = e.clientY - 120;
       used.style.position = "absolute";
 
 
@@ -175,14 +175,25 @@ export default function Chessboard() {
         used.style.top = `${mouseY}px`;
       }
     }
-  }
+  } */
 
   ////////////////////Dropping a piece/////////////////////////////
   function drop(e: React.MouseEvent) {
     const board = ref.current;
     if (used && board) {
-      const x = Math.floor((e.clientX - board.offsetLeft) / 100);
-      const y = Math.abs(Math.ceil((e.clientY - board.offsetTop - 800) / 100));
+      const thing = e.target as HTMLElement;
+    
+      const xValue = thing.getAttribute("data-key")
+      const yValue = thing.getAttribute("data-set")
+
+      if(xValue && yValue){
+        const x = parseInt(xValue);
+        const y = parseInt(yValue);
+      
+        
+      
+      /* const x = Math.floor((e.clientX - board.offsetLeft)/1000);
+      const y = Math.abs(Math.ceil((e.clientY - board.offsetTop - 900) / 100)); */
       const cTurn = count % 2 === 0 ? "b" : "w";
 
       const movingPiece = pieces.find(p => p.position.x === gX && p.position.y === gY);
@@ -190,9 +201,9 @@ export default function Chessboard() {
 
       
       
-      if (movingPiece && movingPiece.team === cTurn && gameOn) {
-        if (movingPiece.validMove(gX, gY, x, y,pieces) ) {
-        
+      if (movingPiece) {
+        if (movingPiece.validMove(gX, gY, x, y,pieces) && cTurn === movingPiece.team && gameOn) {
+          
           const uPieces = pieces.reduce((results, p) => {
             if (p.position.x === gX && p.position.y === gY) {
               p.position.x = x;
@@ -312,46 +323,65 @@ export default function Chessboard() {
           used.style.position = "relative";
           used.style.removeProperty("top");
           used.style.removeProperty("left");
+          //used.classList.remove("selected")
+          console.log("ERROR")
         }
 
       } else {
         used.style.position = "relative";
         used.style.removeProperty("top");
         used.style.removeProperty("left");
+        console.log("ERROR")
       }
+      
       setUsed(null);
       
+      }
     }
-    
   }
 
   function grab(e: React.MouseEvent) {
 
     showMoves();
-    console.log(threatMapWhite(pieces))
+    
     const board = ref.current;
     const thing = e.target as HTMLElement;
+    
+    const xValue = thing.parentElement?.getAttribute("data-key")
+    const yValue = thing.parentElement?.getAttribute("data-set")
+    
+    
+    
+    if(xValue && yValue){
       
-
-    if (thing.classList.contains("chessPiece") && board) {
-      const gX = Math.floor((e.clientX - board.offsetLeft) / 100);
-      const gY = Math.abs(Math.ceil((e.clientY - board.offsetTop - 800) / 100));
-
-
-      
-
-      setX(gX);
-      setY(gY);
-
-      const mouseX = e.clientX - 30;
-      const mouseY = e.clientY - 25;
-      thing.style.position = "absolute";
-      thing.style.left = `${mouseX}px`;
-      thing.style.top = `${mouseY}px`;
-
-      setUsed(thing);
-
+     setX(parseInt(xValue));
+     setY(parseInt(yValue));
+     setUsed(thing);
+     
+     //thing.classList.add("selected")
     }
+
+    if(used === thing){
+      used.style.position = "relative";
+      used.style.removeProperty("top");
+      used.style.removeProperty("left");
+      setUsed(null)
+      //thing.classList.remove("selected")
+    }
+
+    if(used){
+      used.style.position = "absolute";
+      
+    }
+    
+    if( used && used !== thing){
+      
+      //used.classList.remove("selected")
+    }
+    
+    
+    
+
 
   }
 
@@ -375,10 +405,17 @@ export default function Chessboard() {
       
 
 
-      board.push(<Tile key={`${j},${i}`} x={i} y={j}  image={image} number={number} mark={mark} ></Tile>);
+      board.push(<Tile key={`${j},${i}`} x={i} y={j}  image={image} number={number} mark={mark}  ></Tile>);
     }
 
   }
+
+  useEffect(()=>{
+    if(used){
+      used.style.position = "absolute";
+      
+    }
+  })
 
   useEffect(() => {
     if (gameOver=== true) {
@@ -396,7 +433,7 @@ export default function Chessboard() {
       dispatch(resetGame(false));
       dispatch(setGameOver(false));
       playEndSound();
-      console.log(gameOver)
+      
     } 
   });
 
@@ -415,7 +452,7 @@ export default function Chessboard() {
       dispatch(resetGame(false));
       dispatch(setGameOver(false));
       
-      console.log(gameOver)
+      
     } 
   });
   
@@ -427,7 +464,7 @@ export default function Chessboard() {
     <div className="FullBoard">
       
       <AxisY/>
-      <div  onMouseMove={e => move(e)} onMouseUp={e => drop(e)} onMouseDown={e => grab(e)} className="Chessboard" ref={ref}>{board}</div>
+      <div   onMouseUp={e => drop(e)} onClick={e => {grab(e); drop(e);}} className="Chessboard" ref={ref}>{board}</div>
       <div></div>
       <AxisX/>
     </div>

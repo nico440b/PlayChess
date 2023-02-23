@@ -13,11 +13,28 @@
     background-color: #f0fafd;
 }
 
+.tile:nth-child(1){
+    
+    border-top-left-radius: 8px;
+}
 
+.tile:nth-child(8){
+    
+    border-top-right-radius: 8px;
+}
+.tile:nth-child(57){
+    
+    border-bottom-left-radius: 8px;
+}
+
+.tile:nth-child(64){
+    
+    border-bottom-right-radius: 8px;
+}
 
 .tile .chessPiece{
-    width: 60px;
-    height: 60px;
+    width: 100px;
+    height: 100px;
     background-repeat: no-repeat;
     background-position: center;
     background-size: 60px;
@@ -25,7 +42,7 @@
 }
 
 .tile .chessPiece:hover{
-    cursor: grab;
+    cursor:pointer
 }
 
 .tile .chessPiece:active{
@@ -33,20 +50,38 @@
 }
 
 .tile-mark:not(.piece-tile):before{
-    content: " ";
+    content: "";
     width: 100px;
     height: 100px;
-    background-color: rgba(45, 255, 97, 0.3) ;
+    background-color: #79fac4b2 ;
     position: fixed;
+    cursor:pointer
 }
 
+.selected{
+    background-color: #00ff88bd;
+}
 
+.previousMove{
+    background-color: yellow;
+}
 .tile-mark.piece-tile::before{
-    content: " ";
+    content: "";
     width: 100px;
     height: 100px;
-    background-color: rgba(255, 0, 0, 0.3) ;
+    
     position: fixed;
+    cursor:pointer
+    
+} 
+
+
+.tile-mark.piece-tile > .chessPiece{
+    
+    background-color: #ff595f ;
+    
+    cursor:pointer
+    
 } 
 
 

@@ -87,10 +87,10 @@ export default function Gamepage() {
             {deviceSelection()}
             
          </div>
-         <div className='StatsRight'>
+          <div className='StatsRight'>
                <TurnIndicatorComponent/>
                <StatsAlt/>
-         </div>;
+         </div>; 
          
 
 

@@ -6,7 +6,10 @@
     height: 800px;
     margin-right: 0px;
     position: center;
+    
 }
+
+
 .FullBoard{
     display: grid;
     grid-template-columns: 30px 2fr 30px;
@@ -52,6 +55,9 @@
         
     }
 }
+
+
+
 
 
 
