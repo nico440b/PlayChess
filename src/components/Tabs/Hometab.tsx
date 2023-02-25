@@ -6,7 +6,7 @@ import imagePreview1 from "../../assets/images/move_preview.jpg"
 import imagePreview2 from "../../assets/images/castling_move.jpg"
 import waves from "../../assets/images/layered_waves.svg"
 import waves2 from "../../assets/images/layered_waves2.svg"
-import waves3 from "../../assets/images/layered_waves3.svg"
+import waves3 from "../../assets/images/sound_wave.svg"
 import waves4 from "../../assets/images/layered_waves4.svg"
 import ExtensionOutlinedIcon from '@mui/icons-material/ExtensionOutlined';
 import EmailIcon from '@mui/icons-material/Email';
@@ -19,14 +19,20 @@ import { faChessKing, faCircleCheck } from '@fortawesome/free-regular-svg-icons'
 import { useEffect, useState } from "react";
 import { Button } from '@mui/material';
 
-import { Card, CardContent } from "@mui/material"
-import { useNavigate } from "react-router-dom"
+import { Card, CardContent } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
 
 export default function Hometab() {
 
   const [img, setImg] = useState(imagePreview0)
   const [amount, setAmount] = useState(0);
+  
+
+  
+  
+ 
+  
 
   function handleImgChange0() {
     setImg(imagePreview0)
@@ -49,6 +55,11 @@ export default function Hometab() {
     navigate(path);
   }
 
+  
+
+  
+    
+  
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
@@ -89,7 +100,7 @@ export default function Hometab() {
     })
   })
 
-
+  
 
   useEffect(() => {
     const hiddenElements = document.querySelectorAll(".hidden")
@@ -103,15 +114,45 @@ export default function Hometab() {
 
     const hiddenElements4 = document.querySelectorAll(".hidden4")
     hiddenElements4.forEach((el) => observer4.observe(el))
+
+    const blob = document.getElementById("blob");
+    const onMouseMove = (e: any) =>{
+    if (blob) {
+      blob.animate({
+        left: `${e.pageX}px`,
+        top: `${e.pageY}px`
+      },{duration: 5000, fill:"forwards"});
+      
+    }
+  }
+    const UniversalTilt = require('universal-tilt.js');
+    const elems = document.querySelectorAll('.featuresCard');
+
+
+    // v2
+    const universalTilt = UniversalTilt.init({
+      elements: elems,
+      settings: {
+        scale: 1.05,
+        reverse: true
+      },
+      callbacks: {
+        // callbacks...
+      }
+    });
+
+    
+    document.addEventListener("mousemove",onMouseMove); 
   })
 
   return (
 
 
     <div className="containerHome">
-      <div className="homeItems" id="firstItem" style={{ backgroundImage: `url(${image})` }}>
+      <div id="blob"></div>
+      <div className="homeItems" id="firstItem">
 
-        <div className="welcomeContainer">
+        <div className="welcomeContainer noselect">
          
             <p className="welcomeText hidden4">Welcome to <span id="welcomeHighLight"> PLAYCHESS</span></p>
             
@@ -119,7 +160,7 @@ export default function Hometab() {
 
           <div className="flexRow hidden4">
 
-            <p className="welcomeSubText">Since I was a kid, I was very interested in chess. A game about tactics,
+            <p className="welcomeSubText ">Since I was a kid, I was very interested in chess. A game about tactics,
               <span className="welcomeSubText" id="welcomeHighLight"> problem solving</span>
               &nbsp;and pattern recognition. A game that has recently seen a huge surge in popularity after many years of obscurity. As a future
               <span className="welcomeSubText" id="welcomeHighLight"> software engineer</span>
@@ -129,7 +170,7 @@ export default function Hometab() {
               <span className="welcomeSubText" id="welcomeHighLight"> Typescript</span>
               . No external chess libraries have been used. Movement of the pieces is implemented with
               <span className="welcomeSubText" id="welcomeHighLight"> HTML</span>
-              , mouse position relative to the window and the chess board itself, and various
+              , and various
               <span className="welcomeSubText" id="welcomeHighLight"> hooks</span>. As of right now the game works on
               <span className="welcomeSubText" id="welcomeHighLight"> HD</span>
               &nbsp;and
@@ -163,55 +204,55 @@ export default function Hometab() {
 
       <div className="homeItems " id="featuresBanner">
 
-        <p className="homeItemTitleText hidden">
+        <p className="homeItemTitleText hidden noselect">
           Features
         </p>
       </div>
-      <div className="featuresWrapper layeredWaves" style={{ backgroundImage: `url(${waves2})` }}>
-        <Button className="hidden2 fBtn" onClick={handleImgChange0} >
-          <p className={`homeItemText picText hidden2 ${amount === 0 ? "current" : ""}`} id="basicRulesTxt"  >
+      <div className="featuresWrapper layeredWaves">
+        <Button className="hidden4 fBtn" onClick={handleImgChange0} >
+          <p className={`homeItemText picText hidden4 ${amount === 0 ? "current" : ""}`} id="basicRulesTxt"  >
             Basic Rules
           </p>
         </Button>
-        <Button className="hidden2 fBtn" onClick={handleImgChange1} id="previewMoveBtn" >
-          <p className={`homeItemText picText hidden2 ${amount === 1 ? "current" : ""}`} id="previewMovesTxt" >
+        <Button className="hidden4 fBtn" onClick={handleImgChange1} id="previewMoveBtn" >
+          <p className={`homeItemText picText hidden4 ${amount === 1 ? "current" : ""}`} id="previewMovesTxt" >
             Preview Moves
           </p>
         </Button>
-        <Button className="hidden2 fBtn" onClick={handleImgChange2} id="castlingMoveBtn">
-          <p className={`homeItemText picText hidden2 ${amount === 2 ? "current" : ""}`} id="castlingMoveTxt" >
+        <Button className="hidden4 fBtn" onClick={handleImgChange2} id="castlingMoveBtn">
+          <p className={`homeItemText picText hidden4 ${amount === 2 ? "current" : ""}`} id="castlingMoveTxt" >
             Castling
           </p>
         </Button>
 
 
-        <Card className="featuresCard">
-          <CardContent className="featuresCardContent">
+        <div className="featuresCard" >
+          <div className="featuresCardContent"  >
             <div className="features" style={{ backgroundImage: `url(${img})` }}>
-
+                  
             </div>
-          </CardContent>
-        </Card>
+          </div>
+        </div>
 
 
 
       </div>
 
 
-      <div className="homeItems layeredWaves" id="todoBanner" style={{ backgroundImage: `url(${waves4})` }}>
+      <div className="homeItems layeredWaves" id="todoBanner" >
 
-        <p className="todo  hidden homeItemTitleText" id="titleText">
+        <p className="todo  hidden homeItemTitleText noselect" id="titleText">
           TO DO
         </p>
-        <div className="guidingLine" id="guidingLineStart"></div>
+        
       </div>
 
 
-      <div className="todoContent">
+      <div className="todoContent ">
         <div className="todoLeft">
           <div className="todoLine">
             <div className="guidingLine" id="guidingLine1"></div>
-            <section className="todoLeftItem todo hidden">
+            <section className="todoLeftItem todo hidden noselect">
               <FontAwesomeIcon className="iconHomeTab2" id="icon1" icon={faChessKing} />
               <p className="homeItemText">
                 Finish
@@ -223,7 +264,7 @@ export default function Hometab() {
           </div>
           <div className="todoLine">
             <div className="guidingLine" id="guidingLine2" ></div>
-            <section className="todoLeftItem todo hidden">
+            <section className="todoLeftItem todo hidden noselect">
               <ExtensionOutlinedIcon className="iconHomeTab2" id="icon2" fontSize="large" />
               <p className="homeItemText">
                 Add
@@ -237,7 +278,7 @@ export default function Hometab() {
 
           <div className="todoLine">
             <div className="guidingLine" id="guidingLine3"></div>
-            <section className="todoLeftItem todo hidden">
+            <section className="todoLeftItem todo hidden noselect">
               <SmartToyOutlinedIcon className="iconHomeTab2" id="icon3" fontSize="large" />
               <p className="homeItemText">
                 Add an
@@ -249,7 +290,7 @@ export default function Hometab() {
           </div>
           <div className="todoLine" >
             <div className="guidingLine" id="guidingLine4"></div>
-            <section className="todoLeftItem todo hidden">
+            <section className="todoLeftItem todo hidden noselect">
               <FontAwesomeIcon className="iconHomeTab2" id="icon4" icon={faCircleCheck} />
               <p className="homeItemText" id="cleanHighLight">
                 Clean
@@ -263,7 +304,7 @@ export default function Hometab() {
         </div>
         <div className="todoRight">
           <div className="todoRightItem">
-            <section className="hidden3">
+            <section className="hidden4 noselect">
             <p >Rules regarding the
               <span id="rulesetHighLight"> King</span> and the restriction of his movement.</p>
             <p >The game ends now with the capture of the king. This is incorrect. Working on implementing ending conditions such as 
@@ -278,17 +319,17 @@ export default function Hometab() {
             
           </div>
           <div className="todoRightItem">
-              <p className="hidden3">Setup and pre-program<span id="puzzleHighLight"> various puzzles</span>. Such as mate-in-2, mate-in-3 and so on. </p>
+              <p className="hidden4 noselect">Setup and pre-program<span id="puzzleHighLight"> various puzzles</span>. Such as mate-in-2, mate-in-3 and so on. </p>
           </div>
           <div className="todoRightItem">
-            <p className="hidden3">Program a
+            <p className="hidden4 noselect">Program a
               <span id="aiHighLight"> simple AI</span> that can evaluate moves based on
               <span id="aiHighLight"> piece values</span>. This can be done using a
               <span id="aiHighLight"> Minimax algorithm</span>. Move evaluation can then be
               <span id="aiHighLight"> further improved</span> by assigning values to different squares based on their proximity to the center of the board.</p>
           </div>
           <div className="todoRightItem">
-            <p className="hidden3">Remove as much
+            <p className="hidden4 noselect">Remove as much
               <span id="cleanHighLight"> logic</span> as possible from the chessboard component, and remove<span id="cleanHighLight"> unnecessary imports</span>.</p>
           </div>
         </div>
@@ -300,7 +341,7 @@ export default function Hometab() {
 
           <section className=" hidden">
 
-            <p className="homeItemText">
+            <p className="homeItemText noselect">
               Contact Me
             </p>
           </section>

@@ -11,28 +11,43 @@
     transition: all 1000ms;
     margin-top: 0px!important;
     
+    
 }
 
 .MyAppBarChanged{
     display: flex!important;
     width: 100%;
     height: fit-content;
-    background-color: #001220;
+    background-color: #171718;
     padding-left: 5%;
     padding-right: 5%;
     color: #ffffff;
-    
+    transform: translateY(-10%);
     transition: all 1000ms;
     margin-top: 0px!important;
-     
+    
+}
+
+
+#StickyAppBar{
+    position: static;
+    transition: all 1000ms;
+}
+
+#FixedAppBar{
+    position: fixed;
+    transition: all 1000ms;
 }
 
 .container{
     background-color: #00335700;
+    height: 100%;
 }
 
 .toolBar{
     padding: 0px!important;
+    display: flex;
+    align-items: center!important;
 }
 .appBarBtn{
     font-weight: bold;
@@ -44,7 +59,7 @@
 
 .appBarBtn:hover{
     background-color: #42424200!important;
-    color: #79fac5;
+    color: #2bc2b5;
     
     transition: all 800ms;
 }
@@ -69,7 +84,7 @@
 }
 
 .MainIcon:hover{
-    color: #79fac5; 
+    color: #2bc2b5; 
     transition: all 800ms;
 }
 
@@ -79,16 +94,21 @@
     letter-spacing: 0.1rem;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif!important;
     transition: all 800ms;
+    text-decoration: none;
+    color: white; 
+    align-self: center;
 }
 .AppTitle:hover {
-    color: #79fac5; 
+    color: #2bc2b5; 
     transition: all 800ms;
 
     
 }
 
+
+
 .AppTitle:hover .MainIcon{
-    color: #79fac5; 
+    color: #2bc2b5; 
     transition: all 800ms;
 
     

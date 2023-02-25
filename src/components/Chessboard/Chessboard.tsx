@@ -133,56 +133,15 @@ export default function Chessboard() {
 
   
 
-  /* function move(e: React.MouseEvent) {
-    const board = ref.current;
-    if (used && board) {
-
-      // Left
-      const minX = board.offsetLeft - 12;
-
-      // Top
-      const minY = board.offsetTop - 10;
-
-      // Right
-      const maxX = board.offsetLeft + board.clientWidth - 50;
-
-      // Bottom
-      const maxY = board.offsetTop + board.clientHeight - 52;
-
-      const mouseX = e.clientX - 990;
-      const mouseY = e.clientY - 120;
-      used.style.position = "absolute";
-
-
-
-      if (mouseX < minX) {
-        used.style.left = `${minX}px`;
-      }
-      else if (mouseX > maxX) {
-        used.style.left = `${maxX}px`;
-      }
-      else {
-        used.style.left = `${mouseX}px`;
-      }
-
-      if (mouseY < minY) {
-        used.style.top = `${minY}px`;
-      }
-      else if (mouseY > maxY) {
-        used.style.top = `${maxY}px`;
-      }
-      else {
-        used.style.top = `${mouseY}px`;
-      }
-    }
-  } */
+ 
 
   ////////////////////Dropping a piece/////////////////////////////
   function drop(e: React.MouseEvent) {
     const board = ref.current;
     if (used && board) {
       const thing = e.target as HTMLElement;
-    
+      
+      
       const xValue = thing.getAttribute("data-key")
       const yValue = thing.getAttribute("data-set")
 
@@ -192,8 +151,7 @@ export default function Chessboard() {
       
         
       
-      /* const x = Math.floor((e.clientX - board.offsetLeft)/1000);
-      const y = Math.abs(Math.ceil((e.clientY - board.offsetTop - 900) / 100)); */
+      
       const cTurn = count % 2 === 0 ? "b" : "w";
 
       const movingPiece = pieces.find(p => p.position.x === gX && p.position.y === gY);
@@ -317,10 +275,15 @@ export default function Chessboard() {
             
           } 
           dispatch(increment());
+          used.classList.add(" moving")
+          used.style.position = "";
+          used.style.removeProperty("top");
+          used.style.removeProperty("left");
           
         }
         else {
-          used.style.position = "relative";
+          used.classList.add(" moving")
+          used.style.position = "";
           used.style.removeProperty("top");
           used.style.removeProperty("left");
           //used.classList.remove("selected")
@@ -333,10 +296,17 @@ export default function Chessboard() {
         used.style.removeProperty("left");
         console.log("ERROR")
       }
-      
+      used.classList.add(" moving")
+      used.style.position = "";
+      used.style.removeProperty("top");
+      used.style.removeProperty("left");
       setUsed(null);
       
       }
+     
+      used.style.position = "";
+      used.style.removeProperty("top");
+      used.style.removeProperty("left");
     }
   }
 
@@ -344,7 +314,7 @@ export default function Chessboard() {
 
     showMoves();
     
-    const board = ref.current;
+    
     const thing = e.target as HTMLElement;
     
     const xValue = thing.parentElement?.getAttribute("data-key")
@@ -362,7 +332,7 @@ export default function Chessboard() {
     }
 
     if(used === thing){
-      used.style.position = "relative";
+      used.style.position = "";
       used.style.removeProperty("top");
       used.style.removeProperty("left");
       setUsed(null)
@@ -463,10 +433,31 @@ export default function Chessboard() {
   return (
     <div className="FullBoard">
       
-      <AxisY/>
-      <div   onMouseUp={e => drop(e)} onClick={e => {grab(e); drop(e);}} className="Chessboard" ref={ref}>{board}</div>
-      <div></div>
-      <AxisX/>
+      <div className="yAxis noselect">
+        
+        <p className="axis">8</p>
+        <p className="axis">7</p>
+        <p className="axis">6</p>
+        <p className="axis">5</p>
+        <p className="axis">4</p>
+        <p className="axis">3</p>
+        <p className="axis">2</p>
+        <p className="axis">1</p>
+        <p className="axis"></p>
+      </div>
+    
+      <div onMouseUp={e => drop(e)} onClick={e => {grab(e); drop(e);}} className="Chessboard" ref={ref}>{board}</div>
+      <div className="xAxis noselect">
+       <p className="axis"></p>
+        <p className="axis">A</p>
+        <p className="axis">B</p>
+        <p className="axis">C</p>
+        <p className="axis">D</p>
+        <p className="axis">E</p>
+        <p className="axis">F</p>
+        <p className="axis">G</p>
+        <p className="axis">H</p>
+      </div>
     </div>
 
   );

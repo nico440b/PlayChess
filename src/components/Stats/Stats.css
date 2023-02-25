@@ -1,11 +1,11 @@
 
   .statsCard{
-    border-radius: 16px!important;
-    width: 350px;
+    
+    
     display: flex;
     flex-direction: column;
     padding: 0.5rem;
-    background-color: #002933!important;
+    background-color: #00293300!important;
     
   }
 
@@ -18,23 +18,25 @@
  
 
   .capturedChessPiece{
-    width: 20px;
-    height: 30px;
+    width: 1.1vw;
+    height: 1.5vw;
     background-repeat: no-repeat;
     background-position: center;
-    background-size: 20px;
+    background-size: 1.5vw;
   }
 
   .timerGrid2{
     display: flex;
     justify-content: center;
     align-items: center;
+    column-gap: min(2rem, 2vw);
   }
 
   .timerSpan{
     align-items: center;
     color: white;
     font-weight: bold!important;
+    font-size: max(1rem, 1.5vw)!important;
   }
   .timerCardCont{
     display: flex;
@@ -44,26 +46,32 @@
   }
 
   .timerCard{
-    width: fit-content;
+    display: flex ;
+    justify-content: center;
+    height: 2vw;
+    width: 100%;
     align-self: center;
-    background-color: #00000028;
+    background-color: #00000025;
     border-radius: 0!important;
+    padding: min(0.5rem, 1vw);
     
   }
 
   .timerCard::before{
-    background-color: #00000028!important;
+    background-color: #00000015!important;
   }
 
   #active{
-    background-color: rgba(0, 0, 255, 0);
+    background-color: #00000025;
   }
 
   #inactive{
-    background-color: #00000028;
+    background-color: #00000077;
   }
   .timerIcon{
     color: white!important;
+    width: max(1.5rem, 2vw)!important;
+    height: max(1.5rem, 2vw)!important;
   }
   .profileContainer{
     display: flex;
@@ -71,6 +79,7 @@
     color: white;
     align-items: center;
     font-weight: bold;
+    font-size: max(1rem, 1vw);
   }
   
   .piecesGrid{
@@ -78,19 +87,20 @@
     align-content: center;
     justify-content: start;
     align-items: center;
-    margin-left: 10px;
-    height: 40px;
+    width: 1.5vw;
+    height: 1.5vw;
+    
     position: relative;
   }
 
   .CapturedPiece {
-    width: 20px;
-    height: 30px;
+    
   }
 
   .pointContainer{
     margin-left: 5px;
-    font-size: 1rem;
+    font-size: max(1rem, 1vw);
+    font-weight: bold;
     color: white;
   }
 
@@ -121,44 +131,7 @@
   }
 
 
-  @media  screen and (max-width: 1280px) {
-    .statsCard{
-      border-radius: 16px!important;
-      width: 250px;
-      display: flex;
-      flex-direction: column;
-      padding: 0.5rem;
-    }
-    
-    .piecesGrid{
-      display: flex;
-      align-content: center;
-      justify-content: start;
-      align-items: center;
-      margin-left: 10px;
-      height: 30px;
-      position: relative;
-    }
-  
-    .CapturedPiece {
-      width: 12px;
-      height: 20px;
-    }
-
-    .capturedChessPiece{
-      width: 12px;
-      height: 20px;
-      background-repeat: no-repeat;
-      background-position: center;
-      background-size: 17px;
-    }
-
-    .pointContainer{
-      margin-left: 3px;
-      font-size: 0.9rem;
-    
-    }
-}
+ 
   
   
   

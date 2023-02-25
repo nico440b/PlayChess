@@ -6,8 +6,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
  
-  
-  background-color: #001220;
+  background-color: #171718;
   
 }
 
@@ -31,4 +30,6 @@ body::-webkit-scrollbar {
   width: 0px;
   background: transparent; /* Disable scrollbar Chrome/Safari/Webkit */
 }
+
+
 

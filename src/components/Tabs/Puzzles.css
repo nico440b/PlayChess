@@ -13,12 +13,13 @@
 .infoText{
     font-size: 2rem;
     font-weight: bold;
-    color: white;
+    color: #ffffff;
+    filter: drop-shadow(0 0 30px #f72585);
 }
 
 .loadingIcon{
-    color: #79fac5;
-    filter: drop-shadow(0 0 30px #79fac5);
+    color: #2bc2b5;
+    filter: drop-shadow(0 0 30px #2bc2b5);
     width: 5rem;
     height: 5rem;
 }

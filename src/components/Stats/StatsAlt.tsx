@@ -48,11 +48,11 @@ export default function StatsAlt() {
         },
         {
             value: 10,
-            label: 'Quick',
+            label: 'Rapid',
         },
         {
-            value: 20,
-            label: 'Normal',
+            value: 15,
+            label: 'Classic',
         },
     ];
 
@@ -74,7 +74,14 @@ export default function StatsAlt() {
     }
 
     function setTime() {
-        dispatch(setTimer(timerValue - timer));
+        if(timerValue === 15){
+            dispatch(setTimer((timerValue*4-timer)))
+        }else{
+            dispatch(setTimer(timerValue - timer));
+        }
+        
+
+        
     }
 
 
@@ -104,7 +111,7 @@ export default function StatsAlt() {
                 getAriaValueText={valuetext}
                 step={null}
                 min={1}
-                max={20}
+                max={15}
                 valueLabelDisplay="off"
                 marks={marks}
 
@@ -116,7 +123,7 @@ export default function StatsAlt() {
             <div className='startGameBtnGrid'>
 
                 <Button className='setTimeBtn' variant='contained' onClick={setTime}>
-                    Set Time
+                    Time
                 </Button>
                 <Tooltip arrow title={toolTipDisable} TransitionComponent={Zoom} >
                     <span>

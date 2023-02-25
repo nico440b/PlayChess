@@ -85,7 +85,7 @@ export default function Stats({ gameTimer, startGame }: Props) {
 
     return (
         <div className='gameStats'>
-            <Card className="statsCard" id="statsCardBlack" >
+            <div className="statsCard" id="statsCardBlack" >
 
                 
                     <Card className="timerCard " id={cTurnTimerB}>
@@ -114,7 +114,7 @@ export default function Stats({ gameTimer, startGame }: Props) {
 
 
 
-            </Card>
+            </div>
             
 
             

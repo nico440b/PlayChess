@@ -1,60 +1,60 @@
 .Chessboard {
     display: grid;
-    grid-template-columns: repeat(8, 100px);
-    grid-template-rows: repeat(8, 100px);
-    width: 800px;
-    height: 800px;
-    margin-right: 0px;
-    position: center;
+    grid-template-columns: repeat(8, 5vw);
+    grid-template-rows: repeat(8, 5vw);
     
+    
+    position: relative;
+    height: auto;
 }
-
 
 .FullBoard{
     display: grid;
-    grid-template-columns: 30px 2fr 30px;
-    grid-template-rows: 2fr 30px;
+    grid-template-columns: 2.5vw 40vw ;
+    grid-template-rows: 40vw 2.5vw;
+    position: relative;
 }
 
-@media  screen and (min-width: 1280px) and (max-width: 1400px) {
-    .Chessboard {
-        display: grid;
-        grid-template-columns: repeat(8, 60px);
-        grid-template-rows: repeat(8, 60px);
-        width: 480px;
-        height: 480px;
-        margin-right: 0px;
-        position: center;
-    }
-
-    .FullBoard{
-        display: grid;
-        grid-template-columns: 15px 480px 15px;
-        grid-template-rows:  480px 60px;
-        
-    }
-} 
-
-
-
-@media  screen and (min-width: 1440px) and (max-width: 1870px) {
-    .Chessboard {
-        display: grid;
-        grid-template-columns: repeat(8, 80px);
-        grid-template-rows: repeat(8, 80px);
-        width: 640px;
-        height: 640px;
-        margin-right: 0px;
-        position: center;
-    }
-
-    .FullBoard{
-        display: grid;
-        grid-template-columns: 30px 640px 30px;
-        grid-template-rows:  640px 80px;
-        
-    }
+.xAxis{
+    display: grid;
+    grid-template-columns: 2.5vw 5vw 5vw 5vw 5vw 5vw 5vw 5vw 5vw 5vw;
+    grid-template-rows: 2.5vw;
+    
+    
+    align-items: center;
+    justify-items: center;
 }
+
+.yAxis{
+    display: grid;
+    grid-template-rows: 5vw 5vw 5vw 5vw 5vw 5vw 5vw 5vw 5vw 2.5vw;
+    grid-template-columns: 2.5vw;
+    
+    
+    align-items: center;
+    justify-items: center;
+}
+
+.axis{
+    margin: 0;
+    color: #2bc2b5;
+    font-weight: bold;
+    font-size: max(1rem, 1vw);
+    
+}
+.noselect {
+    -webkit-touch-callout: none; /* iOS Safari */
+      -webkit-user-select: none; /* Safari */
+       -khtml-user-select: none; /* Konqueror HTML */
+         -moz-user-select: none; /* Old versions of Firefox */
+          -ms-user-select: none; /* Internet Explorer/Edge */
+              user-select: none; /* Non-prefixed version, currently
+                                    supported by Chrome, Edge, Opera and Firefox */
+  }
+
+
+
+
 
 
 

@@ -1,3 +1,4 @@
+
 import * as React from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
@@ -12,15 +13,16 @@ import Button from "@mui/material/Button";
 
 import MenuItem from "@mui/material/MenuItem";
 
-import { Link } from "react-router-dom";
+import { Link, Router, useLocation } from "react-router-dom";
 import "./MyAppBar.css"
 
 
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChessKnight } from '@fortawesome/free-solid-svg-icons'
-import { useState } from "react";
-import Scrollbars from "react-custom-scrollbars";
+import { useEffect, useState } from "react";
+
+import { transform } from "typescript";
 
 const pages = [
 { text: "Play", href: "/Play" },
@@ -29,11 +31,23 @@ const pages = [
 
 
 
-const settings = [{ text: "Logout", href: "/" }];
+
+
+
+
 
 function MyAppBar() {
 
   const [clrChange, setColor] = useState(false);
+  const location = useLocation();
+  const [locationChange, setLocation] = useState("/home")
+
+  useEffect(()=>{
+    
+    setLocation(location.pathname)
+    
+  })
+  
   
   const changeNavBarClr = () =>{
     if(window.scrollY >= 30){
@@ -43,8 +57,12 @@ function MyAppBar() {
       setColor(false)
     }
   }
-  window.addEventListener("scroll", changeNavBarClr);
 
+  
+  window.addEventListener("scroll", changeNavBarClr);
+  
+  
+  const idName = locationChange === "/home" ? "FixedAppBar" : "StickyAppBar"
   const className = clrChange === true ? "MyAppBarChanged" : "MyAppBar"
   const txtClr = clrChange === true ? "inherit" : "white"
   const elevation = clrChange === true ? 4 : 0;
@@ -52,44 +70,33 @@ function MyAppBar() {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
     null
   );
-  const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(
-    null
-  );
+  
 
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
+    
   };
-  const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorElUser(event.currentTarget);
-  };
+  
 
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
-  };
-
-  const handleCloseUserMenu = () => {
-    setAnchorElUser(null);
+    
+  
   };
 
   
 
-
   
-
-
-
-
- 
     return (
       
-      <AppBar className={className} position={"fixed"} elevation={elevation}>
+      <AppBar className={className} id={idName} elevation={elevation}>
         <Container className="container" maxWidth="xl" disableGutters={true} >
           <Toolbar className="toolBar" disableGutters={true} >
             <Typography className="AppTitle"
               variant="h6"
               noWrap
               component="a"
-              href="/"
+              href="/home"
               sx={{
                 mr: 2,
                 display: { xs: "none", md: "flex" },
@@ -136,6 +143,7 @@ function MyAppBar() {
                 }}
               >
                 {pages.map((page) => (<MenuItem key={page.text} onClick={handleCloseNavMenu}>
+                  
                   <Link key={page.text} to={page.href} >{page.text}</Link>
                 </MenuItem>
 
@@ -147,7 +155,7 @@ function MyAppBar() {
               variant="h5"
               noWrap
               component="a"
-              href=""
+              href="/home"
               sx={{
                 mr: 2,
                 display: { xs: "flex", md: "none" },
@@ -178,35 +186,7 @@ function MyAppBar() {
               ))}
             </Box>
 
-            <Box sx={{ flexGrow: 0 }}>
-              <Menu
-                sx={{ mt: "45px" }}
-                id="menu-appbar"
-                anchorEl={anchorElUser}
-                anchorOrigin={{
-                  vertical: "top",
-                  horizontal: "right"
-                }}
-                keepMounted
-                transformOrigin={{
-                  vertical: "top",
-                  horizontal: "right"
-                }}
-                open={Boolean(anchorElUser)}
-                onClose={handleCloseUserMenu}
-              >
-                {settings.map((setting) => (
-                  <Link className="AppBarLinks" key={setting.text} to={setting.href + setting.text}>
-                    <MenuItem key={setting.text} onClick={handleCloseUserMenu}>
-
-                      <Typography key={setting.text} textAlign="center">{setting.text}</Typography>
-
-                    </MenuItem>
-                  </Link>
-
-                ))}
-              </Menu>
-            </Box>
+            
           </Toolbar>
         </Container>
       </AppBar>

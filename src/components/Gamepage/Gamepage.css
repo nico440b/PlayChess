@@ -1,36 +1,43 @@
 .MainPage{
     
-    display: block;
-    background-color: #001220;
-    justify-content: center;
-    align-items: flex-end;
-    position: relative;
-    height: 100dvh;
+    display: flex;
+    background-color: #171718;
+    width: 100%;
+    padding-inline: min(2vw, 5rem);
+    
+    column-gap: min(2vw, 5rem);
+   flex-wrap: wrap;
+   justify-content: space-evenly;
+    margin-top: min(2vh, 1rem);
+   
+   
 }
 
 .Stats{
-    height: 800px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    
+    display: grid;
+    grid-auto-flow: row;
+    grid-template-rows: 2fr 2fr 2fr;
     background-color: rgba(255, 255, 255, 0);
     border-radius: 16px;
     
-    position: absolute;
-    left: 4%;
-    top: 10%;
+    
+    width: min(30rem, 40vw);
+    max-height: 40vw;
+    background-color: #002933;
+    
 }
 
 .StatsRight{
-    height: 800px;
+    
     display: flex;
-    flex-direction: column;
     justify-content: space-between;
-    background-color: #002933;
-    width: 20%;
-    position: absolute;
-    right: 4%;
-    top: 10%;
+    align-self: flex-start;
+    width: 100%;
+    
+    
+    
+    
 }
 
 
@@ -45,9 +52,9 @@
 
 
 .Board{
-    position: absolute;
-    left:27%;
-    top: 10%;
+    
+    box-shadow: inset 0px 0px 0px #000000
+    
 }
 .dialogContContainer{
     width: 90%;
@@ -60,100 +67,7 @@
     justify-content: center;
     width: 100%;
 }
-  @media screen and (min-width: 1280px) and (max-width: 1440px) {
-    .MainPage{
-    
-        display: flex;
-        background-color: #001220;
-        justify-content: space-evenly;
-        align-items: flex-end;
-        height: calc(100svh - 2rem);
-        padding-bottom: 2rem;
-        overflow: hidden;
-        position: relative;
-        
-       
-        
-          
-    }
-    
-    .Stats{
-       
-        max-height: 480px;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-end;
-        background-color: rgba(255, 255, 255, 0);
-        border-radius: 16px;
-        row-gap: 2rem;
-        margin-bottom: 60px;
-        
-    }
 
-
-    .StatsRight{
-        
-        height: 480px;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        background-color: #002933;
-        width: 20%;
-        margin-bottom: 60px;
-        
-    }
-    
-
-
-    
-}  
-
-@media  screen and (min-width: 1440px) and (max-width: 1870px) {
-    .MainPage{
-    
-        display: flex;
-        background-color: #001220;
-        justify-content: space-evenly;
-        align-items: flex-end;
-        height: calc(100svh - 2rem);
-        padding-bottom: 2rem;
-        overflow: hidden;
-        position: relative;
-        
-       
-        
-          
-    }
-    
-    .Stats{
-       
-        max-height: 640px;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-end;
-        background-color: rgba(255, 255, 255, 0);
-        border-radius: 16px;
-        row-gap: 2rem;
-        margin-bottom: 80px;
-        
-    }
-
-
-    .StatsRight{
-        
-        height: 640px;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        background-color: #002933;
-        width: 20%;
-        margin-bottom: 80px;
-        
-    }
-
-
-    
-}
 
 
 

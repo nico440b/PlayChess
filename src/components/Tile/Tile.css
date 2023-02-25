@@ -1,21 +1,26 @@
 .tile {
     display: grid;
     place-content: center;
-    width: 100px;
-    height: 100px;
+    width: 5vw;
+    height: 5vw;
+    position: relative;
 }
 
 .black-tile {
-    background-color: #014779;
+    background-color: #b58863;
+    
 }
 
 .white-tile {
-    background-color: #f0fafd;
+    background-color: #f0d9b5;
+    
 }
 
 .tile:nth-child(1){
     
     border-top-left-radius: 8px;
+    
+    
 }
 
 .tile:nth-child(8){
@@ -33,11 +38,13 @@
 }
 
 .tile .chessPiece{
-    width: 100px;
-    height: 100px;
+    width: 5vw;
+    height: 5vw;
     background-repeat: no-repeat;
     background-position: center;
-    background-size: 60px;
+    background-size: 3.75vw;
+    
+    
     
 }
 
@@ -45,17 +52,19 @@
     cursor:pointer
 }
 
-.tile .chessPiece:active{
-    cursor: grabbing;
+.moving{
+    transition: all 1000ms ;
 }
 
 .tile-mark:not(.piece-tile):before{
     content: "";
-    width: 100px;
-    height: 100px;
+    width: 5vw;
+    height: 5vw;
     background-color: #79fac4b2 ;
     position: fixed;
-    cursor:pointer
+    cursor:pointer;
+    
+    
 }
 
 .selected{
@@ -67,8 +76,8 @@
 }
 .tile-mark.piece-tile::before{
     content: "";
-    width: 100px;
-    height: 100px;
+    width: 5vw;
+    height: 5vw;
     
     position: fixed;
     cursor:pointer
@@ -86,74 +95,3 @@
 
 
 
- @media  screen and (min-width: 1280px) and (max-width: 1400px) {
-    .tile {
-        display: grid;
-        place-content: center;
-        width: 60px;
-        height: 60px;
-    }
-
-    .tile .chessPiece{
-        width: 40px;
-        height: 40px;
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: 40px;
-        
-    }
-
-    .tile-mark:not(.piece-tile):before{
-        content: " ";
-        width: 60px;
-        height: 60px;
-        background-color: rgba(45, 255, 97, 0.3) ;
-        position: fixed;
-    }
-    
-    
-    .tile-mark.piece-tile::before{
-        content: " ";
-        width: 60px;
-        height: 60px;
-        background-color: rgba(255, 0, 0, 0.3) ;
-        position: fixed;
-    } 
-} 
-
-
-
-@media  screen and (min-width: 1440px) and (max-width: 1870px) {
-    .tile {
-        display: grid;
-        place-content: center;
-        width: 80px;
-        height: 80px;
-    }
-
-    .tile .chessPiece{
-        width: 50px;
-        height: 50px;
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: 50px;
-        
-    }
-
-    .tile-mark:not(.piece-tile):before{
-        content: " ";
-        width: 80px;
-        height: 80px;
-        background-color: rgba(45, 255, 97, 0.3) ;
-        position: fixed;
-    }
-    
-    
-    .tile-mark.piece-tile::before{
-        content: " ";
-        width: 80px;
-        height: 80px;
-        background-color: rgba(255, 0, 0, 0.3) ;
-        position: fixed;
-    } 
-}

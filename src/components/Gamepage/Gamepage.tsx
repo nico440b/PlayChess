@@ -20,10 +20,8 @@ import { Avatar } from '@mui/material';
 import StatsW from '../Stats/StatsW';
 import StatsB from '../Stats/StatsB';
 import TurnIndicatorComponent from '../Stats/TurnIndicatorComponent';
-import Chessboard1440 from '../Chessboard/Chessboard1440';
-import Chessboard1280 from '../Chessboard/Chessboard1280';
 
-
+import ReactCSSTransitionGroup from 'react-transition-group'; // ES6
 const Transition = React.forwardRef(function Transition(
    props: TransitionProps & {
       children: React.ReactElement<any, any>;
@@ -47,19 +45,7 @@ export default function Gamepage() {
    const isFHDDevice: MediaQueryList = window.matchMedia("(max-width: 1920px)")
    
    
-   function deviceSelection(){
-
-      
-      if(isSmallerDevice.matches){
-         return <Chessboard1280/>
-      }
-      if(isSmallerDevice2.matches){
-         return <Chessboard1440/>
-      }
-      if(isFHDDevice.matches){
-         return <Chessboard/>
-      }
-   }
+   
 
    const handleClickOpen = () => {
       setOpen(true);
@@ -78,19 +64,27 @@ export default function Gamepage() {
 
 
    return (
+      
       <div className='MainPage'>
-          <div className='Stats'>
-            <StatsB key={timer+1} gameTimer={timer} startGame={gameOn} />
-            <StatsW key={timer} gameTimer={timer} startGame={gameOn}/>
-      </div> 
+           
          <div className='Board'>
-            {deviceSelection()}
-            
+               <Chessboard/>
          </div>
-          <div className='StatsRight'>
+         <div className='Stats'>
+         
+         
+            <StatsB key={timer+1} gameTimer={timer} startGame={gameOn} />
+            <StatsAlt/>
+            <StatsW key={timer} gameTimer={timer} startGame={gameOn}/>
+            
+            
+            
+               
+         </div> 
+          {/* <div className='StatsRight'>
                <TurnIndicatorComponent/>
                <StatsAlt/>
-         </div>; 
+         </div>;  */}
          
 
 

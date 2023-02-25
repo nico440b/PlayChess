@@ -1,6 +1,6 @@
 .AxisSheetX{
-    width: 830px;
-    height: 30px;
+    width: 52rem;
+    height: 2rem;
     background-color: rgba(255, 255, 255, 0)!important;
     display: flex;
     flex-direction: row;
@@ -16,16 +16,15 @@
     font-size: 1.2rem;
     justify-content: center;
     align-items: flex-start;
-    padding-top: 0.5rem;
+    
     color: #79fac5;
     
-    height: 100%;
-    width: 100px;
+    width: 6rem;
 
 }
 
 .axisXFiller{
-    width: 30px!important;
+    width:0rem!important;
 }
 
 .noselect {
@@ -39,67 +38,7 @@
   }
 
 
-@media  screen and (min-width: 1280px) and (max-width: 1400px) {
-    
-    .AxisSheetX{
-        width: 495px;
-        height: 15px;
-        background-color: rgba(255, 255, 255, 0)!important;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-evenly;
-        align-items: flex-end;
-        
-       
-    }
-    .axisX{
-        display: flex;
-        font-weight: bold;
-        font-size: 0.8rem;
-        
-        
-        
-        
-        height: 100%;
-        width: 60px;
-    
-    }
-    
-    .axisXFiller{
-        
-        width: 15px!important;
-    }
-} 
 
 
-@media  screen and (min-width: 1440px) and (max-width: 1870px) {
-    
-    .AxisSheetX{
-        width: 670px;
-        height: 30px;
-        background-color: rgba(255, 255, 255, 0)!important;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-evenly;
-        align-items: flex-end;
-        
-       
-    }
-    .axisX{
-        display: flex;
-        font-weight: bold;
-        font-size: 1rem;
-       
-        
-        
-        
-        height: 100%;
-        width: 80px;
-    
-    }
-    
-    .axisXFiller{
-        
-        width: 30px!important;
-    }
-}
+
+

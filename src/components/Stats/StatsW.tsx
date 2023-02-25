@@ -50,7 +50,7 @@ export default function Stats({ gameTimer, startGame }: Props) {
 
 
     const cTurn = count % 2 === 0 ? false : true;
-    const cTurnTimerW = count % 2 === 0 ? "inactive" : "active";
+    const cTurnTimerW = count % 2 === 0 || gameOn === false ? "inactive" : "active";
     const cTurnTimerB = count % 2 === 0 ? "" : "rgba(180, 180, 180, 0.500)";
     const pointsPrefixW = pCountW - pCountB > 0 ? "+" : "";
     const pointsW = pCountW - pCountB > 0 ? pCountW - pCountB : "";
@@ -85,7 +85,7 @@ export default function Stats({ gameTimer, startGame }: Props) {
 
     return (
         <div className='gameStats'>
-            <Card className="statsCard" id="statsCardWhite" >
+            <div className="statsCard" id="statsCardWhite" >
 
                 
                     <Card className="timerCard" id={cTurnTimerW}>
@@ -114,7 +114,7 @@ export default function Stats({ gameTimer, startGame }: Props) {
 
 
 
-            </Card>
+            </div>
 
         </div >
     );
