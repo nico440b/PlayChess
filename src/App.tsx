@@ -31,8 +31,8 @@ function App() {
 
         <Routes>
         
-          <Route path="/" element={<Navigate replace to="/home" />} />
-          <Route path="/home" element={<Hometab />} />
+          
+          <Route path="/" element={<Hometab />} />
           <Route path="/play" element={<Gamepage />} />
           <Route path="/puzzles" element={<Puzzles />} />
         

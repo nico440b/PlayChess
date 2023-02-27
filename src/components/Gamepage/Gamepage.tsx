@@ -40,12 +40,10 @@ export default function Gamepage() {
    const [open, setOpen] = React.useState(false);
 
    const winner = gameStats?.[0] === "WHITE" ? "1-0" : "0-1";
-   const isSmallerDevice: MediaQueryList = window.matchMedia("(max-width: 1280px)")
-   const isSmallerDevice2: MediaQueryList = window.matchMedia("(max-width: 1440px)")
-   const isFHDDevice: MediaQueryList = window.matchMedia("(max-width: 1920px)")
-   
-   
-   
+
+
+
+
 
    const handleClickOpen = () => {
       setOpen(true);
@@ -64,45 +62,38 @@ export default function Gamepage() {
 
 
    return (
-      
+
       <div className='MainPage'>
-           
-         <div className='Board'>
-               <Chessboard/>
+         <div className='gameContainer'>
+            <div className='Board'>
+               <Chessboard />
+            </div>
+            <div className='Stats'>
+               <StatsB key={timer + 1} gameTimer={timer} startGame={gameOn} />
+               <StatsAlt />
+               <StatsW key={timer} gameTimer={timer} startGame={gameOn} />
+            </div>
          </div>
-         <div className='Stats'>
-         
-         
-            <StatsB key={timer+1} gameTimer={timer} startGame={gameOn} />
-            <StatsAlt/>
-            <StatsW key={timer} gameTimer={timer} startGame={gameOn}/>
-            
-            
-            
-               
-         </div> 
-          {/* <div className='StatsRight'>
-               <TurnIndicatorComponent/>
-               <StatsAlt/>
-         </div>;  */}
-         
 
 
-         <Dialog className='dialogBox' open={open} 
+
+
+
+         <Dialog className='dialogBox' open={open}
             TransitionComponent={Transition}
             keepMounted
             onClose={handleClose}
             aria-describedby="alert-dialog-slide-description"
             sx={{
                "& .MuiDialog-container": {
-                 "& .MuiPaper-root": {
-                   width: "600px",
-                   maxWidth: "1000px!important",  
-                 },
+                  "& .MuiPaper-root": {
+                     width: "600px",
+                     maxWidth: "1000px!important",
+                  },
                },
-             }}
-            
-            >
+            }}
+
+         >
 
             <div className='dialogContainer'>
                <DialogTitle className='dialogTitle'>{gameEnd}</DialogTitle>
@@ -115,13 +106,13 @@ export default function Gamepage() {
                      <h1>{winner}</h1>
                   </div>
                   <div className='playerBlack'>
-                     <Avatar sx={{ bgcolor: "#014779", color: "white" , minHeight: "80px", minWidth: "80px"}} aria-label="">B</Avatar>
+                     <Avatar sx={{ bgcolor: "#014779", color: "white", minHeight: "80px", minWidth: "80px" }} aria-label="">B</Avatar>
                   </div>
                </DialogContent>
             </div>
-            
 
-         </Dialog> 
+
+         </Dialog>
       </div>
    );
 }

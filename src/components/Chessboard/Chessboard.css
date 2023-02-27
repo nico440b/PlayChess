@@ -1,7 +1,7 @@
 .Chessboard {
     display: grid;
-    grid-template-columns: repeat(8, 5vw);
-    grid-template-rows: repeat(8, 5vw);
+    grid-template-columns: repeat(8, min(5vw, 10vh));
+    grid-template-rows: repeat(8, min(5vw, 10vh));
     
     
     position: relative;
@@ -10,15 +10,15 @@
 
 .FullBoard{
     display: grid;
-    grid-template-columns: 2.5vw 40vw ;
-    grid-template-rows: 40vw 2.5vw;
+    grid-template-columns: min(2.5vw, 5vh) min(40vw, 80vh) ;
+    grid-template-rows: min(40vw, 80vh) min(2.5vw, 5vh);
     position: relative;
 }
 
 .xAxis{
     display: grid;
-    grid-template-columns: 2.5vw 5vw 5vw 5vw 5vw 5vw 5vw 5vw 5vw 5vw;
-    grid-template-rows: 2.5vw;
+    grid-template-columns: min(2.5vw, 5vh) min(5vw, 10vh) min(5vw, 10vh) min(5vw, 10vh) min(5vw, 10vh) min(5vw, 10vh) min(5vw, 10vh) min(5vw, 10vh) min(5vw, 10vh) min(5vw, 10vh);
+    grid-template-rows: min(2.5vw, 5vh);
     
     
     align-items: center;
@@ -27,8 +27,8 @@
 
 .yAxis{
     display: grid;
-    grid-template-rows: 5vw 5vw 5vw 5vw 5vw 5vw 5vw 5vw 5vw 2.5vw;
-    grid-template-columns: 2.5vw;
+    grid-template-rows: min(5vw, 10vh) min(5vw, 10vh) min(5vw, 10vh) min(5vw, 10vh) min(5vw, 10vh) min(5vw, 10vh) min(5vw, 10vh) min(5vw, 10vh) min(5vw, 10vh) min(2.5vw, 5vh);
+    grid-template-columns: min(2.5vw, 5vh);
     
     
     align-items: center;
@@ -53,7 +53,44 @@
   }
 
 
-
+@media screen and (max-height: 1050px){
+    .Chessboard {
+        display: grid;
+        grid-template-columns: repeat(8, min(4vw, 8vh));
+        grid-template-rows: repeat(8, min(4vw, 8vh));
+        
+        
+        position: relative;
+        height: auto;
+    }
+    
+    .FullBoard{
+        display: grid;
+        grid-template-columns: min(2vw, 5vh) min(32vw, 64vh) ;
+        grid-template-rows: min(32vw, 64vh) min(2vw, 4vh);
+        position: relative;
+    }
+    
+    .xAxis{
+        display: grid;
+        grid-template-columns: min(2vw, 4vh) min(4vw, 8vh) min(4vw, 8vh) min(4vw, 8vh) min(4vw, 8vh) min(4vw, 8vh) min(4vw, 8vh) min(4vw, 8vh) min(4vw, 8vh) min(4vw, 8vh);
+        grid-template-rows: min(2vw, 4vh);
+        
+        
+        align-items: center;
+        justify-items: center;
+    }
+    
+    .yAxis{
+        display: grid;
+        grid-template-rows: min(4vw, 8vh) min(4vw, 8vh) min(4vw, 8vh) min(4vw, 8vh) min(4vw, 8vh) min(4vw, 8vh) min(4vw, 8vh) min(4vw, 8vh) min(4vw, 8vh) min(2vw, 4vh);
+        grid-template-columns: min(2vw, 4vh);
+        
+        
+        align-items: center;
+        justify-items: center;
+    }
+}
 
 
 

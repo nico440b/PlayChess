@@ -1,8 +1,8 @@
 .tile {
     display: grid;
     place-content: center;
-    width: 5vw;
-    height: 5vw;
+    width: min(5vw, 10vh);
+    height: min(5vw, 10vh);
     position: relative;
 }
 
@@ -38,11 +38,11 @@
 }
 
 .tile .chessPiece{
-    width: 5vw;
-    height: 5vw;
+    width: min(5vw, 10vh);
+    height: min(5vw, 10vh);
     background-repeat: no-repeat;
     background-position: center;
-    background-size: 3.75vw;
+    background-size:min(3.75vw, 8vh);
     
     
     
@@ -58,8 +58,8 @@
 
 .tile-mark:not(.piece-tile):before{
     content: "";
-    width: 5vw;
-    height: 5vw;
+    width: min(5vw, 10vh);
+    height: min(5vw, 10vh);
     background-color: #79fac4b2 ;
     position: fixed;
     cursor:pointer;
@@ -76,8 +76,8 @@
 }
 .tile-mark.piece-tile::before{
     content: "";
-    width: 5vw;
-    height: 5vw;
+    width: min(5vw, 10vh);
+    height: min(5vw, 10vh);
     
     position: fixed;
     cursor:pointer
@@ -92,6 +92,58 @@
     cursor:pointer
     
 } 
+
+
+@media screen and (max-height: 1050px){
+
+    .tile {
+        display: grid;
+        place-content: center;
+        width: min(4vw, 8vh);
+        height: min(4vw, 8vh);
+        position: relative;
+    }
+    
+    
+    
+    
+    
+    .tile .chessPiece{
+        width: min(4vw, 8vh);
+        height: min(4vw, 8vh);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size:min(3vw, 7vh);
+        
+        
+        
+    }
+    
+    
+    
+    .tile-mark:not(.piece-tile):before{
+        content: "";
+        width: min(4vw, 8vh);
+        height: min(4vw, 8vh);
+        background-color: #79fac4b2 ;
+        position: fixed;
+        cursor:pointer;
+        
+        
+    }
+    
+    
+    .tile-mark.piece-tile::before{
+        content: "";
+        width: min(4vw, 8vh);
+        height: min(4vw, 8vh);
+        
+        position: fixed;
+        cursor:pointer
+        
+    } 
+    
+}
 
 
 

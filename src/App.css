@@ -1,4 +1,6 @@
-
+#app{
+  height: 100%;
+}
 
 .customScrollBar{
   width: 100%!important;

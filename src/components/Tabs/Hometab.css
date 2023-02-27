@@ -36,17 +36,18 @@
     
     margin-bottom: 10svh;
     background-repeat: no-repeat;
-    background-position: cover;
+    background-position: center;
     
+    position: relative;
     
     background-color: #171718;
     background-image: linear-gradient(
-    to bottom, transparent, #171718 99.9%
+    to bottom, transparent, #171718 99.99%
   ), url("../../assets/images/chess_bg.jpg");
     
     z-index: 0;
-    border-bottom-left-radius: 15vw;
-    border-bottom-right-radius: 15vw;
+    /* border-bottom-left-radius: 15vw;
+    border-bottom-right-radius: 15vw; */
 }
 
 
@@ -87,7 +88,7 @@
     row-gap: 0.5rem;
     
     padding: 2rem;
-    
+    position: relative;
     
     
     
@@ -228,6 +229,7 @@
     
     border: 2px solid #2bc2b5;
     box-shadow: 0 0 30px #2bc2b5;
+    transition: box-shadow 0.3s ease-in-out;
 }
 
 
@@ -257,7 +259,7 @@
 
 .todoContent{
     width: 100%;
-    height: fit-content;
+    height: max-content;
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
@@ -361,12 +363,13 @@
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+    background-color: transparent;
     
-    width: 100%;
     
-    background-color: #00566B;
-    margin-top: 40svh;
-    margin-bottom: 0;
+    
+   
+    position: absolute;
+    bottom: -15%;
 }
 
 #phoneText{
@@ -374,6 +377,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    filter: drop-shadow(0 0 5px #ffffff);
 }
 
 #mailText{
@@ -381,6 +385,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    filter: drop-shadow(0 0 5px #ffffff);
 }
 
 
@@ -515,8 +520,12 @@
     justify-content: space-evenly;
     
     align-items: center;
-    width: 100%;
+    width: 90%;
+    border-radius: 16px;
+    background-color: transparent;
     
+    box-shadow: 0 0 10px #f72585;
+    margin-inline: 1rem;
 }
 .featuresWrapper{
     display: flex;
@@ -612,6 +621,7 @@
     transform-style: preserve-3d;
     box-shadow: 0 0 30px white;
     margin-left: min(6vw, 6rem);
+    
     z-index: 1;
 }
 
@@ -636,20 +646,31 @@
 #blob{
     background: linear-gradient(
         to right,
-        rgba(127, 255, 212, 0.2),
+        #7fffd433,
         rgba(147, 112, 216, 0.2),
-        rgb(247, 37, 133, 0.2));
+        #f7258533);
     height: 450px;
     aspect-ratio: 1;
     position: absolute;
     
     translate: -50% -50%;
     border-radius: 50%;
-    filter: blur(200px);
+    filter: blur(100px);
     z-index: 0;
+    transition: all 10s;
+    animation: rotate 10s infinite; 
+    animation-timing-function: ease-in-out;
     
-    animation: rotate 60s infinite; 
-    
+}
+
+#blob2{
+    height: 600px;
+    aspect-ratio: 1;
+    position: absolute;
+    background-image: url("../../assets/images/blobanimation.svg");
+    z-index: 0;
+    translate: -50% -50%;
+    border-radius: 50%;
 }
 
 
@@ -665,11 +686,14 @@
 
 @keyframes rotate{
     from{
-        rotate: 80deg;
+        
+        rotate: 0deg;
     }
+    
     
      
     to{
+        
         rotate: 360deg;
     }
 }

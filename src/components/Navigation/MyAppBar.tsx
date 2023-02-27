@@ -40,7 +40,7 @@ function MyAppBar() {
 
   const [clrChange, setColor] = useState(false);
   const location = useLocation();
-  const [locationChange, setLocation] = useState("/home")
+  const [locationChange, setLocation] = useState("/")
 
   useEffect(()=>{
     
@@ -62,7 +62,7 @@ function MyAppBar() {
   window.addEventListener("scroll", changeNavBarClr);
   
   
-  const idName = locationChange === "/home" ? "FixedAppBar" : "StickyAppBar"
+  const idName = locationChange === "/" ? "FixedAppBar" : "StickyAppBar"
   const className = clrChange === true ? "MyAppBarChanged" : "MyAppBar"
   const txtClr = clrChange === true ? "inherit" : "white"
   const elevation = clrChange === true ? 4 : 0;
@@ -96,7 +96,7 @@ function MyAppBar() {
               variant="h6"
               noWrap
               component="a"
-              href="/home"
+              href="/"
               sx={{
                 mr: 2,
                 display: { xs: "none", md: "flex" },
@@ -155,7 +155,7 @@ function MyAppBar() {
               variant="h5"
               noWrap
               component="a"
-              href="/home"
+              href="/"
               sx={{
                 mr: 2,
                 display: { xs: "flex", md: "none" },

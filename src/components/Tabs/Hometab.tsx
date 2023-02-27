@@ -118,10 +118,13 @@ export default function Hometab() {
     const blob = document.getElementById("blob");
     const onMouseMove = (e: any) =>{
     if (blob) {
-      blob.animate({
-        left: `${e.pageX}px`,
-        top: `${e.pageY}px`
-      },{duration: 5000, fill:"forwards"});
+      
+        blob.animate({
+          left: `${e.pageX}px`,
+          top: `min(${e.pageY}px, ${e.pageY}px)`
+        },{duration: 7000, fill:"forwards"});
+      
+      
       
     }
   }
@@ -133,7 +136,7 @@ export default function Hometab() {
     const universalTilt = UniversalTilt.init({
       elements: elems,
       settings: {
-        scale: 1.05,
+        scale: 1.05,  
         reverse: true
       },
       callbacks: {
@@ -252,6 +255,7 @@ export default function Hometab() {
         <div className="todoLeft">
           <div className="todoLine">
             <div className="guidingLine" id="guidingLine1"></div>
+            
             <section className="todoLeftItem todo hidden noselect">
               <FontAwesomeIcon className="iconHomeTab2" id="icon1" icon={faChessKing} />
               <p className="homeItemText">

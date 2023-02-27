@@ -275,14 +275,14 @@ export default function Chessboard() {
             
           } 
           dispatch(increment());
-          used.classList.add(" moving")
+          used.classList.add("moving")
           used.style.position = "";
           used.style.removeProperty("top");
           used.style.removeProperty("left");
           
         }
         else {
-          used.classList.add(" moving")
+          used.classList.add("moving")
           used.style.position = "";
           used.style.removeProperty("top");
           used.style.removeProperty("left");
@@ -296,7 +296,7 @@ export default function Chessboard() {
         used.style.removeProperty("left");
         console.log("ERROR")
       }
-      used.classList.add(" moving")
+      used.classList.add("moving")
       used.style.position = "";
       used.style.removeProperty("top");
       used.style.removeProperty("left");
