@@ -163,23 +163,22 @@ export default function Hometab() {
 
           <div className="flexRow hidden4">
 
-            <p className="welcomeSubText ">Since I was a kid, I was very interested in chess. A game about tactics,
+            <p className="welcomeSubText ">Since I was a kid, I have been very interested in chess. A game about tactics,
               <span className="welcomeSubText" id="welcomeHighLight"> problem solving</span>
               &nbsp;and pattern recognition. A game that has recently seen a huge surge in popularity after many years of obscurity. As a future
               <span className="welcomeSubText" id="welcomeHighLight"> software engineer</span>
-              , this kind of mental game still speaks to me. Therefore I decided to combine my two passions and create my own chess game. This project is created with
+              , this mental game still speaks to me. Therefore I decided to combine my two passions and create my own chess game. This project is created with
               <span className="welcomeSubText" id="welcomeHighLight"> React</span>
               &nbsp;and
               <span className="welcomeSubText" id="welcomeHighLight"> Typescript</span>
               . No external chess libraries have been used. Movement of the pieces is implemented with
               <span className="welcomeSubText" id="welcomeHighLight"> HTML</span>
-              , and various
-              <span className="welcomeSubText" id="welcomeHighLight"> hooks</span>. As of right now the game works on
+              &nbsp;and various
+              <span className="welcomeSubText" id="welcomeHighLight"> hooks</span>. At the moment the game works on
               <span className="welcomeSubText" id="welcomeHighLight"> HD</span>
               &nbsp;and
               <span className="welcomeSubText" id="welcomeHighLight"> Full HD</span>
-              &nbsp;displays
-              . Scroll down to see the implemented features and things that I am currently working on or click the button to try the game yourself.
+              &nbsp;displays. Scroll down to explore the implemented features and features that I am currently working on or click the button to try the game.
             </p>
 
 
@@ -311,7 +310,7 @@ export default function Hometab() {
             <section className="hidden4 noselect">
             <p >Rules regarding the
               <span id="rulesetHighLight"> King</span> and the restriction of his movement.</p>
-            <p >The game ends now with the capture of the king. This is incorrect. Working on implementing ending conditions such as 
+            <p >At the moment the game ends with the capture of the king. This is incorrect. Working on implementing ending conditions such as 
               <span id="rulesetHighLight"> checkmate</span>,
               <span id="rulesetHighLight"> stalemate</span>, draw by
               <span id="rulesetHighLight"> repetition</span>,
@@ -323,7 +322,7 @@ export default function Hometab() {
             
           </div>
           <div className="todoRightItem">
-              <p className="hidden4 noselect">Setup and pre-program<span id="puzzleHighLight"> various puzzles</span>. Such as mate-in-2, mate-in-3 and so on. </p>
+              <p className="hidden4 noselect">Setup and pre-program<span id="puzzleHighLight"> various puzzles</span>. Such as mate-in-2, mate-in-3 etc. </p>
           </div>
           <div className="todoRightItem">
             <p className="hidden4 noselect">Program a
@@ -334,7 +333,7 @@ export default function Hometab() {
           </div>
           <div className="todoRightItem">
             <p className="hidden4 noselect">Remove as much
-              <span id="cleanHighLight"> logic</span> as possible from the chessboard component, and remove<span id="cleanHighLight"> unnecessary imports</span>.</p>
+              <span id="cleanHighLight"> logic</span> as possible from the chessboard component, remove<span id="cleanHighLight"> unnecessary imports</span> etc.</p>
           </div>
         </div>
 

@@ -62,11 +62,12 @@
   }
 
   #active{
-    background-color: #00000025;
+    
+    background-color: #00000077;
   }
 
   #inactive{
-    background-color: #00000077;
+    background-color: #00000025;
   }
   .timerIcon{
     color: white!important;
